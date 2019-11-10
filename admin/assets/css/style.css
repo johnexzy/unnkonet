@@ -1,0 +1,42 @@
+.fieldset{display: inline}
+.myfield{border: 2px solid;border-radius: 25px;margin: 50px auto;max-width: 400px;background: #fff;box-shadow: 0px 0px 0px 5px hsla(0, 0%, 0%, 0.2)}
+.myfield-legend{margin: 20px 0 20px 0;border: 2px solid;border-radius: 25px;box-shadow: 0px 1px 2px 4px #00000078;background: #fff;}
+.toright{position: static;bottom: 0;right: 10px}
+.toleft{position: static;bottom: 0;left: 20px}
+.img-footer{width:80px;height: 150px;}
+.login-footer{position: static;bottom: 0;width: 100%;height: 70px;background-color: rgb(10, 2, 20);padding: 10px;color: rgb(209, 205, 205);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif}
+.login-btn-small{background: #fff;cursor: pointer;width: 150px; margin: 40px auto 10px auto;padding: 10px;border: 3px solid #fff;border-radius: 100px;font-size: 14px;box-shadow: 0px 0px 2px 2px;}
+.login-btn-small-fade{background: #1c006df2;display: block;cursor: pointer;width: 150px;margin: 10px auto;padding: 10px;border: 0px solid #fff;border-radius: 100px;font-size: 14px;box-shadow: 0px 1px 3px hsla(0, 0%, 0%, .2);color: white;}
+.plainbox{height: 200px;background: rgba(30, 20, 117, 0.918);width: 200px;float: left;color: rgb(223, 223, 223);border-radius: 5px;box-shadow: 2px inset rgb(20, 20, 20);font-weight: bolder;padding: 2px;cursor: pointer;margin: 5px;overflow: hidden;text-transform: uppercase;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; box-shadow: 4px 4px 0px 0px #000000}
+.textplain{margin: 20px 0 40px 0;}
+.plainbox:hover{background: rgb(95, 89, 89);}
+.records{text-emphasis: none; text-align: center; font-size: 15px; text-transform: initial; font-family: 'Courier New', Courier, monospace;font-weight: bold}
+.aliceblue{background: aliceblue;}
+.carol{width: 100%;margin: 10px auto;min-height: 300px;background: rgb(12, 57, 140);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid snow;border-radius: 10px;}
+.carol-large{width: 90%;margin: 10px auto;min-height: 500px;background: rgb(155, 72, 72);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid gold;border-radius: 10px;}
+.header{border: 1px solid;width: 40%;min-height: 65px;padding: 6px;background: rgb(229, 226, 226);color: rgb(36, 35, 35);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
+.header-large{border: 1px solid;width: 100%;min-height: 65px;padding: 6px;background: rgba(27, 27, 27, 0.747);color: rgb(255, 255, 255);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
+.msg{float: left;border: 1px solid;width: 40%;min-height: 200px;padding: 5px;background: rgba(228, 223, 223, 0.747);color: rgb(23, 23, 24);border-radius: 3px;margin-top:5px;}
+.msg-large{float: left;border: 1px solid;width: 100%;min-height: 400px;padding: 5px;background: rgba(27, 27, 27, 0.747);color: rgb(243, 245, 247);border-radius: 3px;margin-top:5px;}
+.msg-large-display{float: left;border: 1px solid;width: 100%;min-height: 220px;padding: 5px;background: rgba(27, 27, 27, 0.747);color: rgb(243, 245, 247);border-radius: 3px;margin-top:5px;}
+.rowimage{float: right;width: 45%;border-radius: 3px;height: 260px;margin-top: -60px;border:1px solid aliceblue}
+.rowimage-small{float: right;width: 45%;border-radius: 3px;height: 150px;margin: 10px 0;border:1px solid rgb(7, 67, 119);background: rgb(133, 57, 57);}
+.rowimage-small:hover{background: rgb(4, 13, 63);}
+.rowimage:hover{background: rgb(173, 168, 168);}
+.send-large{ display:block; border-radius: 5px;border: none;width:60%; line-height: 3;font-weight: bold; background: rgba(3, 58, 114, 0.781); color: gold; margin: 0 auto;}
+.send-large:hover{background: rgb(4, 13, 63);font-size: 17px}
+.dropper{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 1000;background: #ecebebd3}
+.dropper-content{max-width: 600px;margin: 30px auto;border: 1px solid #e5e5e5;border-radius: 10px;background: #fdfdfd;}
+.dropper-header{padding: 15px;border-bottom: 1px solid #e5e5e5;}
+#openadd:hover{background: #353535}
+.select, .select option{margin: 10px 0 0 10px; height: 30px; background: rgb(219, 211, 162); font-size: 23px; border: none; font-family: 'Courier New', Courier, monospace}
+/* pricing table */
+.input-small{ width:120px;}
+.input-small-number{ width: 80px;}
+#linkPanel{border: 1px solid;border-radius: 6px;background: #3a2222;width:500px;padding: 5px;box-shadow: 0 0 12px #1a1919;color: #ecebebcb;height: 230px;margin: 10px auto;transition: .5s;display: none;}
+#linkPanel input{display: block;color: #1d1c1c;font-weight: bolder;margin: -5px 0 0 0;width: 480px;height: 40px;border-radius: 4px;}
+#linkPanel textarea{color: #1a1919;margin: -5px 0 0 0;padding: 1px;width:480px;display: block;height: 60px;border-radius: 4px;}
+#linkPanel button{color: #1a1919b2;background: #a7a4a4;font-size: 22.5px;font-weight: bold;width: 120px;height:40px;box-shadow: 0 0 12px #1d1c1c;margin: 9px 0 0 0;padding: 0;border-radius: 3px;}
+#linkPanel button:hover{background: #666565}
+.show{display: block}
+.imgshow{text-align:center; border:1px dashed gold;color:gold; text-transform:Uppercase; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}

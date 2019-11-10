@@ -1,0 +1,85 @@
+html{
+	overflow-x: hidden
+}
+.face{
+	width: 100%; 
+	height: 100%;
+	overflow: hidden;
+}
+.addon{position: relative; margin: 0px 0 0 0; height: 420px;}
+.Main{margin: 0px 0 0 0; border: 0;border-radius: 0; background: transparent;  width: 100%}
+.face-img{
+	overflow: hidden;
+	text-align: center;
+	width: 30%; 
+	margin-top: 20px; 
+	margin-left: 60% ;
+	cursor: pointer;
+}
+.face .face-head{
+	padding: 80px 0 0 40px
+}
+.face .face-head h2{
+	line-height: 1;
+	color: #fff; 
+	font-size: 35px; 
+	display: inline; 
+	top: 70px;
+	z-index: 10; 
+	font-weight: 800;
+	text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+	text-transform: uppercase;
+	margin-bottom: 20px
+}
+.face .face-head p{
+	
+	top: 155px;
+	color: #fff;
+	font-size: 18px;
+	line-height: 26px;
+	
+	overflow: hidden;
+	font-family:OpenSansRegular;
+	text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.face .face-head .face-link{
+	color: #fff;
+	font-size: 17px;
+	display: inline;
+	text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+	background: #333;
+	text-transform: uppercase;
+	line-height: 1.3;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: OpenSansBold;
+	cursor: pointer;
+}
+@media screen and (max-width: 800px){
+	.face .face-head{
+		padding: 50px 0 0 20px
+	}
+	.face .face-head h2{
+		font-size: 27px
+	}
+}@media screen and (max-width: 750px){
+	.face .face-head{
+		padding: 20px 0 0 20px
+	}
+	.face .face-head h2{
+		font-size: 24px
+	}
+}
+@media screen and (max-width: 751px){
+	.face .face-img{
+		
+	}
+}
+@media screen and (max-width: 620px){
+	.Main{
+		height: 420px;
+	}
+	.face .face-img{
+		margin-top: 0
+	}
+}

@@ -1,0 +1,5 @@
+
+RewriteEngine On
+
+RewriteRule ^index index.php [NC]
+#RewriteRule ^slides/([0-9a-zA-z]+) view.php?id=$1 [NC]

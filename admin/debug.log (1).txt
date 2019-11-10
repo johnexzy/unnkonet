@@ -1,0 +1,2 @@
+[0130/142716.565:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0130/171404.977:ERROR:crash_report_database_win.cc(428)] unexpected header
