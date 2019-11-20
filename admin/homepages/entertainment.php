@@ -174,7 +174,7 @@
                 if (isset($_POST['addentertainment'])) {
                     $header = $DBcon->real_escape_string($_POST['header']);
                     $body = $DBcon->real_escape_string($_POST['body']);
-                    $tag = $DBcon->real_escape_string(substr($header, 0, 9));
+                    $tag = $DBcon->real_escape_string(substr($header, 0, 9).rand(1, 33333));
                     $Dateofpost = date('Y').date('m').date('d');
                     $poster = $userRow['lastname']." ".$userRow['firstname'];
                     //make sure file type is image
@@ -201,26 +201,22 @@
                         $avatar_path = $DBcon->real_escape_string('images/'.$_FILES['avatar']['name']);
                         //copy the image to images/ folder
                         if (copy($_FILES['avatar']['tmp_name'], $avatar_path)){
-                        
-                    # code...
-                    
-                    $sql = "INSERT INTO `entertainment` (`image`, `header`, `body`, `Dateofpost`, `Writer`, `current`) VALUES ('$avatar_path', '$header',  '$body', '$Dateofpost', '$poster', CURRENT_TIMESTAMP)";
-                            
+                            $sql = "INSERT INTO `entertainment` (`image`, `header`, `body`, `Dateofpost`, `Writer`, `tag`) VALUES ('$avatar_path', '$header',  '$body', '$Dateofpost', '$poster', '$tag')";
                             if ($DBcon->query($sql) === true) {
                             $mssg = "<div class='alert alert-success'>
-                        <span class='pe-7s-info'></span> &nbsp; successfully Succesfully added !
-                    </div>";
+                                        <span class='pe-7s-info'></span> &nbsp; successfully Succesfully added !
+                                    </div>";
                             }
                             else {
-                                $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
+                                $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
                     </div>";
                             }
                         }else{
-                            $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
+                            $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
                     </div>";
                         }
                     }else {
-                        $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
+                        $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
                     </div>";
                     }
                         
@@ -326,7 +322,7 @@
                             $display_string .= "$row[header]";
                             $display_string .= "</div>";
                             $display_string .= "<div class='msg'>";
-                            $display_string .= "$row[body]";
+                            $display_string .= substr("$row[body]", 0, 70);
                             $display_string .= "</div>";
                             $display_string .= "<img class='rowimage' src='$row[image]'>";
                             $display_string .= "</div>";
@@ -373,7 +369,7 @@
                     </ul>
                 </nav>
                 <p class='copyright pull-right'>
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://www.https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
                 </p>
             </div>
         </footer>

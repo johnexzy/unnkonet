@@ -42,15 +42,15 @@ if (isset($_POST['UploadNews'])) {
           </div>";
                 }
                 else {
-                    $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
+                    $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
         </div>";
                 }
               }else{
-                $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
+                $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
         </div>";
               }
         }else {
-            $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
+            $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
         </div>";
         }
             

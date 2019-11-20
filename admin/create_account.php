@@ -53,6 +53,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="assets/js/ui.js"></script>
   <style type="text/css">
@@ -62,7 +63,8 @@
           background-clip: content-box;
           background-position: 50%;
           background-size: 100% 100%;
-          background-origin: content-box
+          background-origin: content-box;
+          padding-left: -60px
       }
       .input{
           width: 85%;

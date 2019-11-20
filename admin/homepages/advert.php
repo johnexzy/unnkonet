@@ -9,7 +9,8 @@
 	<meta charset='utf-8' />
 	<link rel='icon' type='image/x-icon' href='../../favicon.ico'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
-
+    <meta name="viewport" content="width=device-width" />
+    
 	<title>ADMIN::Advert</title>
     <!-- Bootstrap core CSS     -->
     <link href='../assets/css/bootstrap.min.css' rel='stylesheet' />
@@ -177,7 +178,7 @@
                             
                             $header = $DBcon->real_escape_string($_POST['header']);
                             $body = $DBcon->real_escape_string($_POST['body']);
-                            $tag = $DBcon->real_escape_string(substr($header, 0, 9));
+                            $tag = $DBcon->real_escape_string(substr($header, 0, 9).rand(1, 33333));
                             $Dateofpost = date('Y').date('m').date('d');
                             $poster = $userRow['lastname']." ".$userRow['firstname'];
                             //make sure file type is image
@@ -207,7 +208,7 @@
                                   
                               # code...
                             
-                              $sql = "INSERT INTO `advert` (`image`, `header`, `body`, `Dateofpost`, `Writer`, `current`) VALUES ('$avatar_path', '$header',  '$body', '$Dateofpost', '$poster', CURRENT_TIMESTAMP)";
+                              $sql = "INSERT INTO `advert` (`image`, `header`, `body`, `Dateofpost`, `Writer`, `tag`) VALUES ('$avatar_path', '$header',  '$body', '$Dateofpost', '$poster', '$tag')";
                                     
                                     if ($DBcon->query($sql) === true) {
                                        $mssg = "<div class='alert alert-success'>
@@ -375,7 +376,7 @@
                     </ul>
                 </nav>
                 <p class='copyright pull-right'>
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://www.https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
                 </p>
             </div>
         </footer>

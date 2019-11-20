@@ -1,7 +1,7 @@
 <?php
 	include('./php/config.php'); //database connection
 	include('./php/newsindex.php');//get all news from database
-	get_required_files()
+	include('./php/youtube.php');
 ?>
 <!DOCTYPE HTML>
 	<html>
@@ -260,7 +260,12 @@
 		================================================== -->
 			<div id="wrapfooter">
 				<div class="grid">
-                                    <div class="row" id="footer"><iframe style="border-radius: 10px" width="100%" height="480" src="https://www.youtube.com/embed/Pj7GLbd18mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                         <div class="row" id="footer">
+						 <h2 class="title"><i class="icon-desktop"></i> YOUTUBE</h2>
+						 <iframe id="youtubelink" name="youtube" style="border-radius: 10px" width="100%" height="480" src="<?php echo(_getUrl()) ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						 <h2 class="title"><i class="icon-twitter"></i> TWITTER</h2>
+						 <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/unnkonet?ref_src=twsrc%5Etfw">Tweets by unnkonet</a>
+						 <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						<!-- to top button  -->
 						<p class="back-top floatright">
 							<a href="#top"><span></span></a>

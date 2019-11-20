@@ -267,24 +267,24 @@
                                     </thead>
                                     <tbody id="showAll">
                                     <?php
-                    require_once '../php/config.php';
-                    $query = "SELECT * FROM `pricing`  \n" . " ORDER BY `id` DESC";
-                    $stmt = $DBcon->prepare( $query );
-                    $stmt->execute();
-                    $display_string = "";
-                    while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                        $display_string .= "<tr><form action=''>";
-                        $display_string .= "<td><button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button></td>";
-                        $display_string .= "<td><input type='text' class='input-small' value='$row[packagename]'> </td>";
-                        $display_string .= "<td>N<input type='number' class='input-small-number' value='$row[value]'></td>";
-                        $display_string .= "<td><input type='text' class='input-small' value='$row[duration]'></td>";
-                        $display_string .= "<td><input type='text' class='input-small' value='$row[signature]'></td>";
-                        $display_string .= "<td><button type='submit' data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> OVERWRITE</button></td>";
-                        $display_string .= "</form></tr>";
-                    }
-                    
-                    echo $display_string;
-                ?>
+                                        require_once '../php/config.php';
+                                        $query = "SELECT * FROM `pricing`  \n" . " ORDER BY `id` DESC";
+                                        $stmt = $DBcon->prepare( $query );
+                                        $stmt->execute();
+                                        $display_string = "";
+                                        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+                                            $display_string .= "<tr><form action=''>";
+                                            $display_string .= "<td><button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button></td>";
+                                            $display_string .= "<td><input type='text' class='input-small' value='$row[packagename]'> </td>";
+                                            $display_string .= "<td>N<input type='number' class='input-small-number' value='$row[value]'></td>";
+                                            $display_string .= "<td><input type='text' class='input-small' value='$row[duration]'></td>";
+                                            $display_string .= "<td><input type='text' class='input-small' value='$row[signature]'></td>";
+                                            $display_string .= "<td><button type='submit' data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> OVERWRITE</button></td>";
+                                            $display_string .= "</form></tr>";
+                                        }
+                                        
+                                        echo $display_string;
+                                    ?>
                                         
                                         
                                     </tbody>
@@ -343,7 +343,7 @@
                         </ul>
                     </nav>
                     <p class='copyright pull-right'>
-                        &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://www.https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
+                        &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
                     </p>
                 </div>
             </footer>

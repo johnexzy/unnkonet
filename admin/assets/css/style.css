@@ -1,5 +1,5 @@
 .fieldset{display: inline}
-.myfield{border: 2px solid;border-radius: 25px;margin: 50px auto;max-width: 400px;background: #fff;box-shadow: 0px 0px 0px 5px hsla(0, 0%, 0%, 0.2)}
+.myfield{border: 2px solid;border-radius: 25px;margin: 10px auto;max-width: 400px;background: #fff;box-shadow: 0px 0px 0px 5px hsla(0, 0%, 0%, 0.2)}
 .myfield-legend{margin: 20px 0 20px 0;border: 2px solid;border-radius: 25px;box-shadow: 0px 1px 2px 4px #00000078;background: #fff;}
 .toright{position: static;bottom: 0;right: 10px}
 .toleft{position: static;bottom: 0;left: 20px}

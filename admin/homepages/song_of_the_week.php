@@ -168,7 +168,7 @@
 
         <div class='content'>
             <div class='container-fluid'>
-            <header><p class='info center' style='cursor:pointer; font-size: 22px;background:rgb(155, 72, 72);border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>UPDATE SONG OF THE WEEK</p></header>
+            <header><p class='info center' style='font-size: 22px;border: 1px solid;border-radius: 2px;color: #000; width: 100%;text-align: center;font-family: Arial, sans-serif; '>UPDATE SONG OF THE WEEK</p></header>
             <?php
         if (isset($_POST['UploadNews'])) {
         
@@ -189,17 +189,17 @@
           </div>";
                 }
                 else {
-                    $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
+                    $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
         </div>";
                 }
             }
             else{
-                $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; internal eror!
+                $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; internal eror!
         </div>";
               }
         }
         else {
-            $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
+            $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
         </div>";
         }
             
@@ -215,10 +215,9 @@
                 <div id="showresult"></div>
 
                 <form action="" enctype="multipart/form-data" method="POST">
-                        <div class="carol">
                     <fieldset style='background:#eee;'><legend style='text-align: center; color:rgb(175, 72, 72); font-size:25px;font-weight:bolder'>CHOOSE AUDIO</legend><label for="audioname">Name of Song:&nbsp; </label><input type="text" id="audioname" name='audioname' style='line-height: 2.3; margin:5px'><br>
-                    <input type="file" id="audio" name="uplaoditem" onchange="loadFile(event)"  multiple>
-                    <br><br><br><input type='submit' name='UploadNews' class='send-large' style='color:#fff' value='Upload Audio'></fieldset></div>
+                    <input type="file" accept="audio/*" id="audio" name="uplaoditem" onchange="loadFile(event)"  multiple>
+                    <br><br><br><input type='submit' name='UploadNews' class='send-large' style='color:#fff' value='Upload Audio'></fieldset>
                 </form>
 
                 
@@ -242,7 +241,7 @@
                     </ul>
                 </nav>
                 <p class='copyright pull-right'>
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://www.https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href='https://unnkonet.com.ng'>Unnkonet</a> Developed by <a href='https://www.facebook.com/john.oba.10'>Johnexzy</a>
                 </p>
             </div>
         </footer>
@@ -255,122 +254,7 @@
 
     <!--   Core JS Files   -->
 	<script src='../assets/js/bootstrap.min.js' type='text/javascript'></script>
-    <script>
-    $(document).ready(function(){
-        
-        $(document).on('click', '#getUser', function(e){
-            
-            e.preventDefault();
-            var uid = $(this).data('id');   // it will get id of clicked row
-                // load ajax loader
-            $.ajax({
-                url: 'editnews.php',
-                type: 'POST',
-                data: 'id='+uid,
-                dataType: 'html'
-            })
-            .done(function(data){
-                console.log(data);
-                
-                $('#data-content').html(data)
-                $('#view-edit').slideDown()		  // hide ajax loader	
-            })
-            .fail(function(){
-              alert('error');
-            });
-            
-        });
-        
-    });
-    $(document).ready(function(){
-        
-        $(document).on('click', '#delUser', function(e){
-            
-            e.preventDefault();
 
-
-            var uid = $(this).data('id');   // it   will get id of clicked row
-                // load ajax loader
-           var check = confirm('ARE YOU SURE TO DELETE')
-           if(!check || check == false || check == 'NO')
-           {
-               return false
-           }
-            $.ajax({
-                url: 'delnews.php',
-                type: 'POST',
-                data: 'id='+uid,
-                dataType: 'html'
-            })
-            .done(function(data){
-                console.log(data);
-                $("#showresult").html(data)		  // hide ajax loader	
-            })
-            .fail(function(){
-              alert('error');
-            });
-            
-        });
-        
-    });
-    $(window).ready(function(){
-        $('#close').click(function(){
-            $('#view-edit').slideUp(1400)
-        })
-        $('#openadd').click(function(){
-            $('#msg').focus();
-        });
-    })
-    </script>
-         <script>
-    $(document).ready(function(){
-         $('#changeimage').on('click', function(){
-          $("#image").click();
-          $("#image").on('change', function(){
-                $('#showText').hide()
-                $("#prev").show();
-        })
-        });
-      })
-      
-    </script>
-    <script>
-        var id = document.getElementById.bind(document);
-        
-        function date(params) {
-            
-            y = new Date().getFullYear()
-            m = Number(new Date().getMonth() + 1)
-            d = new Date().getDate()
-            if(m.toString().length == 1) m = "0"+m
-            if(d.toString().length == 1) d = "0"+d
-            datenow = Number(y+""+m+""+d)
-            id(params).value = datenow
-        }
-        
-        var loadFile = function(event){
-            var reader = new FileReader();
-            reader.onload = function() {
-            var output = document.getElementById('prev');
-           // output.src = reader.result;
-            };
-        reader.readAsDataURL(event.target.files[0]);
-
-        };
-        id('select-image').addEventListener('change', function(event){
-            var reader = new FileReader();
-            reader.onload = function() {
-            var output = id('prev-new');
-            output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-
-        })
-        
-    </script>
-
-    <!--  Google Maps Plugin    -->
-    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'></script>
 
 	<script src='../assets/js/light-bootstrap-dashboard.js?v=1.4.0'></script>
    
