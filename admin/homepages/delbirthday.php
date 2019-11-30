@@ -1,4 +1,5 @@
 <?php
+    require '../../php/newstimeline.php';
 	require_once '../../php/config.php';
 	if (isset($_REQUEST['id'])) {
 		
@@ -18,7 +19,6 @@
                         $display_string .= "<td><input type='text' class='input-small' value='". FormMonth($row[3])."' disabled></td>";
                         $display_string .= "<td><input type='text' class='input-small' value='$row[2]' disabled></td>";
                         $display_string .= "<td><input type='text' class='input-small' value='$row[5]' disabled></td>";
-                        //$display_string .= "<td><button type='submit' data-id='$row[0]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> OVERWRITE</button></td>";
                         $display_string .= "</form></tr>";
                     }
 

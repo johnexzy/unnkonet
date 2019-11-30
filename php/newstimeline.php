@@ -45,28 +45,28 @@
         }
         return $month;
     }
-	function getData()
-	{
-		include "config.php";
-		$DBhost = $sever;
-		$DBuser = $username;
-		$DBpass = $dbpass;
-		$DBname = $database;
-		
-		$DBconn = new MySQLi($DBhost,$DBuser,$DBpass,$DBname);
-		if ($DBconn->connect_errno) {
-			die("ERROR : -> ".$DBconn->connect_error);
-		}
-		$nowd = date('d') ;
-		$nowm = date('m') * 1;
-		$nowy = date('Y') ;
-		$name = "";
-		$comm = "";
-		$tag =  "";
-		$postcom = "";
-		$datetoday = ($nowy.$nowm.$nowd) * 1;
-		$query = "SELECT * FROM news \n" . " ORDER BY `id` DESC";
-		$stmt = $DBcon->prepare( $query);
+    function getData()
+    {
+        include "config.php";
+        $DBhost = $sever;
+        $DBuser = $username;
+        $DBpass = $dbpass;
+        $DBname = $database;
+
+        $DBconn = new MySQLi($DBhost,$DBuser,$DBpass,$DBname);
+        if ($DBconn->connect_errno) {
+                die("ERROR : -> ".$DBconn->connect_error);
+        }
+        $nowd = date('d') ;
+        $nowm = date('m') * 1;
+        $nowy = date('Y') ;
+        $name = "";
+        $comm = "";
+        $tag =  "";
+        $postcom = "";
+        $datetoday = ($nowy.$nowm.$nowd) * 1;
+        $query = "SELECT * FROM news \n" . " ORDER BY `id` DESC";
+        $stmt = $DBcon->prepare( $query);
         $stmt->execute();
         $showupdate = "";
         //$in = $nowm;
@@ -146,5 +146,5 @@
 		$showupdate .= "</dl>";
 		$showupdate .= "</div>";
 		return $showupdate;
-	}
+    }
 ?>

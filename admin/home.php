@@ -258,17 +258,17 @@
                             <p class='records'><?php echo(maxValue("pricing"));?> Active Billings</p>
                         </section>
                     </a>
-                    <!-- <a href=""> -->
+                    <a href="homepages/birthday.php">
                         <section class='plainbox' title='click to edit'>
                             <p align='center' class='textplain' >
                                 <b>
                                     <span class='pe-7s-gift'>&nbsp;</span>
-                                    Birthdays
+                                    Manage Birthdays
                                 </b>
                             </p>
                             <p class='records'><?php echo(maxValue("birthday"));?> signed</p>
                         </section>
-                    <!-- </a> -->
+                    </a>
                     <a href="homepages/song_of_the_week.php">
                         <section class='plainbox' title='click to edit'>
                             <p align='center' class='textplain' >

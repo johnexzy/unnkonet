@@ -171,15 +171,15 @@ a.expandAll {padding: 10px;}
 }
 .fixed{
 	position: fixed;
-	height: 200px;
-	background: #4c2d8667;
+	min-height: 20px;
+	background: #4c2d863d;
 	width: 50px;
 	right: 0;
 	top:40%;
 	padding: 0 4px 4px 4px;
 	z-index: 1000;
 	border-radius: 10px 0 0 10px;
-	box-shadow: 4px 4px 8px 4px #000000;;
+	box-shadow: 2px 3px 5px 1px #000000;;
 	box-sizing: border-box;
 }
 #headerfile{

@@ -9,7 +9,7 @@
 	<link rel='icon' type='image/x-icon' href='../../favicon.ico'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 
-	<title>Admin::Song</title>
+	<title>Admin:: BIRTHDAY</title>
 
     <!-- Bootstrap core CSS     -->
     <link href='../assets/css/bootstrap.min.css' rel='stylesheet' />
@@ -148,6 +148,7 @@
                                 <li><a href='advert.php'>ADD ADVERT</a></li>
                                 <li><a href='entertainment.php'>ENTERTAINMENT</a></li>
                                 <li><a href='carouseledit.php'>ADD CAROUSEL</a></li>
+                                <li><a href='birthday.php'>BITHDAY MANAGER</a></li>
                                 <li><a href='../table.php'>SHOW PRICING</a></li>
                                 <li><a href='../team.php'>TEAM PAGE</a></li>
                                 <li class='divider'></li>
@@ -187,7 +188,7 @@
                                     <?php
                                         require_once '../../php/config.php';
                                         require '../../php/newstimeline.php';
-                                        $query = "SELECT * FROM `birthday`  \n" . " ORDER BY `id` DESC";
+                                        $query = "SELECT * FROM `birthday` ORDER BY `id` DESC";
                                         $stmt = $DBcon->prepare( $query );
                                         $stmt->execute();
                                         
@@ -199,11 +200,10 @@
                                             $display_string .= "<td><input type='text' class='input-small' value='". FormMonth($row[3])."' disabled></td>";
                                             $display_string .= "<td><input type='text' class='input-small' value='$row[2]' disabled></td>";
                                             $display_string .= "<td><input type='text' class='input-small' value='$row[5]' disabled></td>";
-                                            //$display_string .= "<td><button type='submit' data-id='$row[0]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> OVERWRITE</button></td>";
                                             $display_string .= "</form></tr>";
                                         }
                                         
-                                        echo $display_string;
+                                        echo $display_string
                                     ?>
                                         
                                         
