@@ -139,9 +139,9 @@
                     </div>
                 </div><!-- begin description area -->
                 <!-- body -->
-                <p style='line-height:35px; font-size:larger; font-family:Constantia; color: #000' id='body'>
+                <article style='line-height:35px; font-family:Constantia; color: #000' id='body'>
                     <?php echo $body ?>
-                </p>
+                </article>
                 <br>
                 <div style="color: #000; border-top: 1px solid">
                     <i>DATE POSTED</i> : <?php echo substr($Dateofpost, 0,4).'-'.
