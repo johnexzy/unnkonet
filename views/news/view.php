@@ -1,15 +1,15 @@
 <?php
-	require_once '../../php/config.php';
-	if (isset($_GET['id'])) {
+require_once '../../php/config.php';
+if (isset($_GET['id'])) {
 
-		$id = intval($_REQUEST['id']);
-		$query = "SELECT * FROM news WHERE id=:id";
-		$stmt = $DBcon->prepare( $query );
-		$stmt->execute(array(':id'=>$id));
-		$row=$stmt->fetch(PDO::FETCH_ASSOC);
+    $id = intval($_REQUEST['id']);
+    $query = "SELECT * FROM news WHERE id=:id";
+    $stmt = $DBcon->prepare($query);
+    $stmt->execute(array(':id' => $id));
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     extract($row);
-		include('../../php/newsindex.php');
-		?>
+    include '../../php/newsindex.php';
+    ?>
 <!DOCTYPE HTML>
 <html>
 <head><meta name="viewport" content="width=device-width"/>
@@ -42,24 +42,26 @@
 		</div>
 	</div>
 
-	<ul id="submenu" style="">
-        <li class="active"  color="black"><a href="../../index.php"><i class="icon-home"></i> HOME</a></li>
-        <li><a href="../../pricing.php"><i class="icon-credit-card">&nbsp;</i> PRICING TAble</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-calendar">&nbsp;</i> birthday signup</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-tags">&nbsp;</i> news timeline</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-lightbulb">&nbsp;</i> Wise sayings</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-picture">&nbsp;</i> Gallery</a></li>
-        <li class="last" title="Home" ><a href="../../team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
-        <li title="about us" ><a href="../../about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
-        <li title="Privacy Policy" class=""><a href="../../faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
-        <li title="Contact Us" ><a href="../../contact.html"><i class="icon-phone">&nbsp;</i> contact Us</a></li>
-    </ul>
+	    <ul id="submenu" style="">
+
+            <li class="active"  color="black"><a href="../../index.php"><i class="icon-home"></i> HOME</a></li>
+            <li><a href="../../pricing.php"><i class="icon-credit-card">&nbsp;</i> PRICING TAble</a></li>
+            <li title="birthdaysignup" ><a target='_blank' href="../../birthdaysignup.php"><i class="icon-calendar">&nbsp;</i> birthday signup</a></li>
+            <li title="GPCALC" ><a target='_blank' href="../../GPA_CALC.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
+            <li class="last" title="Home" ><a href="../../team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
+            <li><a href="../../timeline.php" ><i class="icon-list">&nbsp;</i> Timeline</a></li>
+            <li title="about us" ><a target='_blank' href="../../about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
+
+            <li title="Privacy Policy" class=""><a href="../../faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
+
+            <li title="Contact Us" ><a target='_blank' href="../../contact.html"><i class="icon-phone">&nbsp;</i> contact Us</a></li>
+
+        </ul>
 </div>
 <div class="openmenu right">
-		<span class="bar" id="span1"></span>
-		<span class="bar" id="span2" style="top:12px"></span>
-		<span class="bar" id="span3" style="top: 19px"></span>
+		<span class="bar" id="span1" style="top:10px"></span>
+        <span class="bar" id="span2" style="top:17px"></span>
+        <span class="bar" id="span3" style="top: 24px"></span>
 	</div>
 <div class="mainbody">
 <div class="grid">
@@ -144,24 +146,24 @@
                 </article>
                 <br>
                 <div style="color: #000; border-top: 1px solid">
-                    <i>DATE POSTED</i> : <?php echo substr($Dateofpost, 0,4).'-'.
-							substr($Dateofpost, 4,-2).'-'.
-							substr($Dateofpost, 6,8); ?><br>
+                    <i>DATE POSTED</i> : <?php echo substr($Dateofpost, 0, 4) . '-' .
+    substr($Dateofpost, 4, -2) . '-' .
+    substr($Dateofpost, 6, 8); ?><br>
                     <i>Writer</i> : <b style="cursor:pointer; text-transform:uppercase">
                     <a href="../../team.php" target="_blank"><?php echo $Writer ?> </a></b>
                     <br>
                 </div>
             </div><!-- end description area -->
             <?php
-                $querycomment = "SELECT * FROM comment WHERE tag = '$tag' \n" . " ORDER BY `id` DESC";
-                $st = $DBcon->prepare($querycomment);
-                $st->execute();
-                $showupdate = "";
-                $showupdate .= "<div id='commentts' class='c8'>
+$querycomment = "SELECT * FROM comment WHERE tag = '$tag' \n" . " ORDER BY `id` DESC";
+    $st = $DBcon->prepare($querycomment);
+    $st->execute();
+    $showupdate = "";
+    $showupdate .= "<div id='commentts' class='c8'>
                                     <h1 class='maintitle'><span><i class='icon-envelope-alt'></i>COMMENTS</span></h1>
                                     <ul>";
-                while($corow=$st->fetch(PDO::FETCH_ASSOC)){
-                    $showupdate .="<li>
+    while ($corow = $st->fetch(PDO::FETCH_ASSOC)) {
+        $showupdate .= "<li>
                                         <article>
                                         <header>
                                             <figure class='avatar'><img src='../../images/avatar.png' alt=''></figure>
@@ -175,11 +177,11 @@
                                         </div>
                                         </article>
                                     </li>";
-                }
-                $showupdate .= "	</ul>
+    }
+    $showupdate .= "	</ul>
                                 </div>";
-                echo $showupdate;
-            ?>
+    echo $showupdate;
+    ?>
             <div class="wrapcontact">
                 <form action="" method="GET">
                     <div class="form">
@@ -205,7 +207,7 @@
                     <a href="https://twitter.com/unnkonet" class="twitter rotate has-tip" target="_blank" title="Follow Us on Twitter">Twitter</a>
                     </li>
                     <li class="facebook-link smallrightmargin">
-                    <a href="https://facebook.com/share.php?u=<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>&title=<?php echo $headline ?>" class="facebook rotate has-tip" target="_blank" title="Join us on Facebook">Facebook</a>
+                    <a href="https://facebook.com/share.php?u=<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>&title=<?php echo $headline ?>" class="facebook rotate has-tip" target="_blank" title="Join us on Facebook">Facebook</a>
                     </li>
                     <li class="instagram-link smallrightmargin">
                     <a href="https://instagram.com/unnkonet" class="instagram rotate has-tip" target="_blank" title="Follow Us on Instagram">Instagram</a>
@@ -226,10 +228,10 @@
 				<span>RECENT POST</span>
 				</h1>
 			</div>
-				
+
 				<div class="row space-bot">
 					<div class="c12">
-						<?php echo(getData("NEWS", $id)) ?>
+						<?php echo (getData("NEWS", $id)) ?>
 					</div>
 				</div>
 				<div class="row space-top">
@@ -241,7 +243,7 @@
 				</div>
 				<div class="row space-bot">
 					<div class="c12">
-						<?php echo(getData("SPORTS", $id)) ?>
+						<?php echo (getData("SPORTS", $id)) ?>
 					</div>
 				</div><div class="row space-top">
 					<div class="c12 space-top">
@@ -252,7 +254,7 @@
 				</div>
 				<div class="row space-bot">
 					<div class="c12">
-						<?php echo(getData("TECH", $id)) ?>
+						<?php echo (getData("TECH", $id)) ?>
 					</div>
 				</div>
 				<div class="c5"></div>
@@ -439,5 +441,5 @@
     </body>
     </html>
     <?php
-    }
+}
 ?>

@@ -78,7 +78,7 @@
         						<li><a href="gallery.html">GALLERY</a></li>
         						<li><a href="birthdaysignup.html">YOUR BIRTHDAY</a></li>
         						<li><a href="GPA_CALC.html">GP CALCULATOR</a></li>
-        						<li><a href="testimonials.html">WISE SAYINGS</a></li>
+        						
         						<li><a href="timeline.php">NEWS TIMELINE</a></li>
         						<li><a href="faq.html">PRIVACY POLICY</a></li>
         					</ul>

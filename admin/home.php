@@ -97,31 +97,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href='typography.html'>
-                        <i class='pe-7s-map-marker'></i>
-                        <p>contact Us</p>
+                    <a href='media.php'>
+                        <i class='pe-7s-album'></i>
+                        <p>MEDIA</p>
                     </a>
                 </li>
-                <li>
-                    <a href='icons.html'>
+                <li class="disabled">
+                    <a href='#'>
                         <i class='pe-7s-id'></i>
                         <p>about us</p>
                     </a>
                 </li>
+                
                 <li>
-                    <a href='maps.html'>
-                        <i class='pe-7s-star'></i>
-                        <p>Wise sayings</p>
-                    </a>
-                </li>
-                <li>
-                    <a href='notifications.html'>
-                        <i class='pe-7s-bell'></i>
-                        <p>News timeline</p>
-                    </a>
-                </li>
-                <li>
-                    <a href='notifications.html'>
+                    <a href='../team.php'>
                         <i class='pe-7s-users'></i>
                         <p>Team</p>
                     </a>

@@ -13,7 +13,7 @@
 .records{text-emphasis: none; text-align: center; font-size: 15px; text-transform: initial; font-family: 'Courier New', Courier, monospace;font-weight: bold}
 .aliceblue{background: aliceblue;}
 .carol{width: 100%;margin: 10px auto;min-height: 300px;background: rgb(12, 57, 140);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid snow;border-radius: 10px;}
-.carol-large{width: 90%;margin: 10px auto;min-height: 500px;background: rgb(155, 72, 72);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid gold;border-radius: 10px;}
+.carol-large{width: 90%;margin: 10px auto;min-height: 600px;background: rgb(155, 72, 72);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid gold;border-radius: 10px;}
 .header{border: 1px solid;width: 40%;min-height: 65px;padding: 6px;background: rgb(229, 226, 226);color: rgb(36, 35, 35);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
 .header-large{border: 1px solid;width: 100%;min-height: 65px;padding: 6px;background: rgba(27, 27, 27, 0.747);color: rgb(255, 255, 255);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
 .msg{float: left;border: 1px solid;width: 40%;min-height: 200px;padding: 5px;background: rgba(228, 223, 223, 0.747);color: rgb(23, 23, 24);border-radius: 3px;margin-top:5px;}
@@ -33,10 +33,15 @@
 /* pricing table */
 .input-small{ width:120px;}
 .input-small-number{ width: 80px;}
-#linkPanel{border: 1px solid;border-radius: 6px;background: #3a2222;width:500px;padding: 5px;box-shadow: 0 0 12px #1a1919;color: #ecebebcb;height: 230px;margin: 10px auto;transition: .5s;display: none;}
+#linkPanel{border: 1px solid;border-radius: 6px;background: #3a2222;width:500px;padding: 5px;box-shadow: 0 0 12px #1a1919;color: #ecebebcb;min-height: 230px;margin: 10px auto;transition: .5s;display: none;}
 #linkPanel input{display: block;color: #1d1c1c;font-weight: bolder;margin: -5px 0 0 0;width: 480px;height: 40px;border-radius: 4px;}
 #linkPanel textarea{color: #1a1919;margin: -5px 0 0 0;padding: 1px;width:480px;display: block;height: 60px;border-radius: 4px;}
 #linkPanel button{color: #1a1919b2;background: #a7a4a4;font-size: 22.5px;font-weight: bold;width: 120px;height:40px;box-shadow: 0 0 12px #1d1c1c;margin: 9px 0 0 0;padding: 0;border-radius: 3px;}
 #linkPanel button:hover{background: #666565}
+#vidPanel{border: 1px solid;border-radius: 6px;background: #3a2222;max-width:500px;padding: 5px;box-shadow: 0 0 12px #1a1919;color: #ecebebcb;min-height: 230px;margin: 10px auto;transition: .5s;display: none;}
+#vidPanel input[type=text]{display: block;color: #1d1c1c;font-weight: bolder;margin: -5px 0 0 0;width: 480px;height: 40px;border-radius: 4px;}
+#vidPanel textarea{color: #1a1919;margin: -5px 0 0 0;padding: 1px;width:480px;display: block;height: 60px;border-radius: 4px;}
+#vidPanel button{display:block; color: #1a1919b2;background: #a7a4a4;font-size: 22.5px;font-weight: bold;width: 120px;height:40px;box-shadow: 0 0 12px #1d1c1c;margin: 9px 0 0 0;padding: 0;border-radius: 3px;}
+#vidPanel button:hover{background: #666565}
 .show{display: block}
 .imgshow{text-align:center; border:1px dashed gold;color:gold; text-transform:Uppercase; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}

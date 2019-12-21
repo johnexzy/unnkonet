@@ -50,7 +50,7 @@
                                     <li><a href="gallery.html">GALLERY</a></li>
                                     <li><a href="GPA_CALC.html">GP CALCULATOR</a></li>
                                     <li class="active"><a href="birthdaysignup.html">YOUR BIRTHDAY</a></li>
-                                    <li><a href="testimonials.html">Wise Sayings</a></li>
+                                    
                                     <li><a href="timeline.php">Timeline</a></li>
                                     <li><a href="faq.html">Privacy Policy</a></li>
                                 </ul>

@@ -1,8 +1,8 @@
 <?php
 
-	include('./php/config.php'); //database connection
-	include('./php/newsindex.php');//get all news from database
-	include('./php/youtube.php');
+include './php/config.php'; //database connection
+include './php/newsindex.php'; //get all news from database
+include './php/youtube.php';
 ?>
 <!DOCTYPE HTML>
 	<html>
@@ -47,15 +47,15 @@
 	}
 </style>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<script src="js/jquery-1.9.0.min.js"></script>
+		<!-- <script src="js/jquery-1.9.0.min.js"></script> -->
 		<!-- STYLES & JQUERY
 		==================================================-->
-		<!-- <script src="https://code.jquery.com/jquery-1.9.0.min.js"
+		<script src="https://code.jquery.com/jquery-1.9.0.min.js"
 
 		  integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344="
 
-		  crossorigin="anonymous"></script> -->
-		
+		  crossorigin="anonymous"></script>
+
 		<link rel="manifest" href="manifest.json">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/icons.css"/>
@@ -65,8 +65,8 @@
 		<link rel="stylesheet" type="text/css" href="css/text.css">
 	</head>
 	<body>
-		<div>
-			<div class="fixedtop">
+		<div style="display:none">
+			<div class="fixedtop" >
 				<a href="index.php">
 					<img src="images/logo - Copy.png" width="212px" height="60px" class="logo" alt="">
 				</a>
@@ -78,7 +78,7 @@
 		<div class="fixed">
 			<div id="showPanel" style="border-top-left-radius:6px;margin-left:-4px;width:50px;height:29px;color:#000;background:#7f7f3c6b; font-size:23px;cursor:pointer;border-bottom:1px solid #fff"><i class="icon-bullhorn" ></i></div>
 			<ul class="social-links showpanel" id="leftlink" style="margin-top:15px;">
-				
+
 				<li class="twitter-link smallrightmargin">
 
 				<a href="https://twitter.com/unnkonet" class="twitter rotate has-tip" target="_blank" title="Follow Us on Twitter">Twitter</a>
@@ -139,8 +139,6 @@
 					<li title="GPCALC" ><a target='_blank' href="GPA_CALC.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
 					<li class="last" title="Home" ><a href="team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
 					<li><a href="timeline.php" ><i class="icon-group">&nbsp;</i> Timeline</a></li>
-					<li title="Contact Us" ><a href="testimonials.html"><i class="icon-lightbulb">&nbsp;</i> Wise sayings</a></li>
-					<li title="Contact Us" ><a target='_blank' href="gallery.html"><i class="icon-picture">&nbsp;</i> Gallery</a></li>
 					<li title="about us" ><a target='_blank' href="about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
 
 					<li title="Privacy Policy" class=""><a href="faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
@@ -155,7 +153,7 @@
 					<span class="bar" id="span1" style="top:10px"></span>
 					<span class="bar" id="span2" style="top:17px"></span>
 					<span class="bar" id="span3" style="top: 24px"></span>
-				</div> 
+				</div>
 
 			<div class="mainbody">
 
@@ -227,7 +225,7 @@
 
 											<li><a target='_blank' href="GPA_CALC.html">GP CALCULATOR</a></li>
 
-											<li><a href="testimonials.html">WISE SAYINGS</a></li>
+											
 
 											<li><a target='_blank' href="timeline.php">NEWS TIMELINE</a></li>
 
@@ -253,9 +251,9 @@
 
 					<?php
 
-						include('./php/showcase.php');
+include './php/showcase.php';
 
-					?>
+?>
 
 				</div>
 
@@ -311,7 +309,7 @@
 
 						<div class="c12">
 
-							<?php echo(getData("NEWS")) ?>
+							<?php echo (getData("NEWS")) ?>
 
 						</div>
 
@@ -335,7 +333,7 @@
 
 						<div class="c12">
 
-							<?php echo(getData("SPORTS")) ?>
+							<?php echo (getData("SPORTS")) ?>
 
 						</div>
 
@@ -357,7 +355,7 @@
 
 						<div class="c12">
 
-							<?php echo(getData("TECH")) ?>
+							<?php echo (getData("TECH")) ?>
 
 						</div>
 
@@ -389,7 +387,7 @@
 
 						<div class="c12">
 
-							<?php include './php/advert.php'; ?>
+							<?php include './php/advert.php';?>
 
 						</div>
 
@@ -413,7 +411,7 @@
 
 						<div class="c12">
 
-							<?php include './php/entertainment.php'; ?>
+							<?php include './php/entertainment.php';?>
 
 						</div>
 
@@ -455,9 +453,9 @@
 
 								<?php
 
-										include('./php/birthday.php');
+include './php/birthday.php';
 
-								?>
+?>
 
 
 
@@ -481,7 +479,7 @@
 
 						<div class="wrapaction">
 
-							<?php include './php/download.php'; ?>
+							<?php include './php/download.php';?>
 
 						</div>
 
@@ -527,7 +525,7 @@
 						<div class="row" id="footer">
 
 						<h2 class="title"><i class="icon-desktop"></i> YOUTUBE</h2>
-						 <iframe id="youtubelink" name="youtube" style="border-radius: 10px" width="100%" height="480" src="<?php echo(_getUrl()) ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						 <iframe id="youtubelink" name="youtube" style="border-radius: 10px" width="100%" height="480" src="<?php echo (_getUrl()) ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						 <h2 class="title"><i class="icon-twitter"></i> TWITTER</h2>
 						 <a class="twitter-timeline" data-theme="dark" data-width="95%" data-height="400" data-chrome="noscrollbar" href="https://twitter.com/unnkonet?ref_src=twsrc%5Etfw">Tweets by unnkonet</a>
 						 <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

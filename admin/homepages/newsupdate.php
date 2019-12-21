@@ -1,11 +1,12 @@
-<?php 
-        include '../../php/env.php';
-        include '../session.php';
-        include '../dbconnect.php';
+<?php
+include '../../php/env.php';
+include '../session.php';
+include '../dbconnect.php';
 ?>
 <html lang='en'>
 <head>
-	<meta charset='utf-8' />
+    <meta charset='utf-8' />
+    
 	<link rel='icon' type='image/x-icon' href='../../favicon.ico'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 
@@ -54,7 +55,7 @@
                         <p>Settings</p>
                     </a>
                 </li>
-                
+
                 <li class='active'>
                     <a href='../home.php'>
                         <i class='pe-7s-home'></i>
@@ -127,7 +128,7 @@
 								<p class='hidden-lg hidden-md'>Dashboard</p>
                             </a>
                         </li>
-                        
+
                     </ul>
 
                     <ul class='nav navbar-nav navbar-right'>
@@ -170,15 +171,15 @@
         <div class='content'>
             <div class='container-fluid'>
             <header><p class='info center' style='cursor:pointer; font-size: 22px;background:rgb(155, 72, 72);border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD NEWS</p></header>
-                <?php 
-                    require('newsdb.ini.php');
-                ?>
                 <?php
-                if (isset($mssg)) {
-                    # code...
-                    echo $mssg;
-                }
-                ?>
+require 'newsdb.ini.php';
+?>
+                <?php
+if (isset($mssg)) {
+    # code...
+    echo $mssg;
+}
+?>
                 <div id="showresult"></div>
                 <div id="disptext"></div>
                 <form action="" enctype="multipart/form-data" method="POST">
@@ -187,9 +188,16 @@
                             <section id="access" style=" border:2px dashed">
                                     <div id="Panel">
                                         <div id="linkPanel">
+                                            <p style="text-align:center; color:blue">CREATE LINKED TEXT</p>
                                             <label for="link">PASTE LINK HERE</label><textarea name="link" id="linkname" placeholder="e.g https://unnkonet.com.ng"></textarea><br>
                                             <label for="text">Show link as:</label><input type="text" id="linktext" name="text" placeholder="e.g. click Here">
                                             <button type="button" id="addlink">&plus; ADD</button>
+                                        </div>
+                                        <div id="vidPanel">
+                                            <p style="text-align:center; color:blue">ADD VIDEO</p>
+                                            <label for="link">PASTE LINK HERE(copy the correct video link.)</label><textarea name="link" id="vidlink" placeholder="e.g https://unnkonet.com.ng/admin/uploads/exapmle.mp4"></textarea><br>
+                                            <input type="checkbox" id="linktext" name="text" checked><label for="text"> Show Control</label>
+                                            <button type="button" id="addvid">&plus; ADD</button>
                                         </div>
                                     </div>
                                     <input type="button" value="Create Text Link" id="link">|
@@ -198,7 +206,8 @@
                                     <input type="button" value="fontsize" id="size">|
                                     <input type="button" value="bold" id="bold">|
                                     <input type="button" value="Color" id="color">
-                                    <input type="button" value="Insert Image by Link" id="imgins">
+                                    <input type="button" value="Insert Image by Link" id="imgins">|
+                                    <input type="button" value="Insert Video by Link" id="vidins">
                                 </section>
                                 <textarea class="header-large" id='msg' placeholder="Your headline here" name='header' maxlength='' required></textarea>
                             </div>
@@ -224,7 +233,7 @@
                                 </div>
                                 <img class='rowimage-small' id="prev" style='display:none;'>
                             </div>
-                            
+
                             <input type="hidden"  name="Dateofpost" id='dateofpost'>
                             <input type="file" id="image" accept="image/*" name="uplaoditem" onchange="loadFile(event)" style='display:none; ' multiple>
                             <input type='submit' name='UploadNews' class='send-large' value='CREATE'>
@@ -234,54 +243,54 @@
                 <header><p class='info center' style='background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 22px'>EDIT SLIDERS</p></header>
                 <div id='showdelres'>
                     <?php
-                        require_once '../../php/config.php';
-                        $query = "SELECT * FROM `news`  \n" . " ORDER BY `id` DESC";
-                        $stmt = $DBcon->prepare( $query );
-                        $stmt->execute();
-                        $display_string = "<div>";
-                        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                            $display_string .= "<hr>";
-                            $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> EDIT</button><span>&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button>";
-                            $display_string .= "<div class='carol-large'>";
-                            $display_string .= "<textarea class='header-large' readonly>";
-                            $display_string .= "$row[headline]";
-                            $display_string .= "</textarea>";
-                            $display_string .= "<textarea class='msg-large-display' readonly>";
-                            $display_string .= "$row[body]";
-                            $display_string .= "</textarea>";
-                            $display_string .= "<label class='select'>CATEGORY:</label> $row[category]";
-                            $display_string .= "<img class='rowimage-small' src='$row[uploads]' alt='no upload'>";
-                            $display_string .= "</div>";
-                        }
-                        $display_string .= "</div>";
-                
-                        $display_string .="<p id='openadd' class='info center' style='cursor:pointer; font-size: 22px;background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD MORE SLIDERS</p>";
-                        echo $display_string;
-                    ?>
+require_once '../../php/config.php';
+$query = "SELECT * FROM `news`  \n" . " ORDER BY `id` DESC";
+$stmt = $DBcon->prepare($query);
+$stmt->execute();
+$display_string = "<div>";
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $display_string .= "<hr>";
+    $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> EDIT</button><span>&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button>";
+    $display_string .= "<div class='carol-large'>";
+    $display_string .= "<textarea class='header-large' readonly>";
+    $display_string .= "$row[headline]";
+    $display_string .= "</textarea>";
+    $display_string .= "<textarea class='msg-large-display' readonly>";
+    $display_string .= "$row[body]";
+    $display_string .= "</textarea>";
+    $display_string .= "<label class='select'>CATEGORY:</label> $row[category]";
+    $display_string .= "<img class='rowimage-small' src='$row[uploads]' alt='no upload'>";
+    $display_string .= "</div>";
+}
+$display_string .= "</div>";
+
+$display_string .= "<p id='openadd' class='info center' style='cursor:pointer; font-size: 22px;background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD MORE SLIDERS</p>";
+echo $display_string;
+?>
                 </div>
                 <div id="view-edit" class="dropper" style="display:none">
                     <div class="dropper-content">
-                    <div class="modal-header"> 
+                    <div class="modal-header">
                             <h4 class="modal-title">
                             	<i class="pe-7s-tools"></i> EDIT
-                            </h4> 
+                            </h4>
                        </div>
                        <form action="" enctype="multipart/form-data" method="POST">
                             <div id="data-content">
-                            
+
                             </div>
-                        
-                            <div class="modal-footer"> 
-                                <button type="subimt" class="btn btn-default" name="editnews" >Submit</button>  
-                                <button type="button" class="btn btn-default" id="close">Close</button>  
+
+                            <div class="modal-footer">
+                                <button type="subimt" class="btn btn-default" name="editnews" >Submit</button>
+                                <button type="button" class="btn btn-default" id="close">Close</button>
                             </div>
                         </form>
                     </div>
                 </div><!-- /.modal -->
-               
+
 		   </div>
-        </div>	
-        
+        </div>
+
 
 
         <footer class='footer'>
@@ -311,9 +320,9 @@
 	<script src='../assets/js/bootstrap.min.js' type='text/javascript'></script>
     <script>
     $(document).ready(function(){
-        
+
         $(document).on('click', '#getUser', function(e){
-            
+
             e.preventDefault();
             var uid = $(this).data('id');   // it will get id of clicked row
                 // load ajax loader
@@ -325,21 +334,21 @@
             })
             .done(function(data){
                 console.log(data);
-                
+
                 $('#data-content').html(data)
-                $('#view-edit').slideDown()		  // hide ajax loader	
+                $('#view-edit').slideDown()		  // hide ajax loader
             })
             .fail(function(){
               alert('error');
             });
-            
+
         });
-        
+
     });
     $(document).ready(function(){
-        
+
         $(document).on('click', '#delUser', function(e){
-            
+
             e.preventDefault();
 
 
@@ -359,14 +368,14 @@
             .done(function(data){
                 console.log(data);
                 $("#showdelres").html(data);
-                demo.Notification('top','right');	  // hide ajax loader	
+                demo.Notification('top','right');	  // hide ajax loader
             })
             .fail(function(){
               alert('error');
             });
-            
+
         });
-        
+
     });
     $(window).ready(function(){
         $('#close').click(function(){
@@ -387,13 +396,13 @@
         })
         });
       })
-      
+
     </script>
     <script>
         var id = document.getElementById.bind(document);
-        
+
         function date(params) {
-            
+
             y = new Date().getFullYear()
             m = Number(new Date().getMonth() + 1)
             d = new Date().getDate()
@@ -402,7 +411,7 @@
             datenow = Number(y+""+m+""+d)
             id(params).value = datenow
         }
-        
+
         var loadFile = function(event){
             var reader = new FileReader();
             reader.onload = function() {
@@ -421,7 +430,7 @@
             reader.readAsDataURL(event.target.files[0]);
 
         })
-        
+
     </script>
 
     <!--  Notifications Plugin    -->
@@ -432,6 +441,6 @@
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="../assets/js/demo.js"></script>
-   
+
 
 </html>

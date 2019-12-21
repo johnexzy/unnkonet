@@ -70,8 +70,8 @@
 					<li title="GPCALC" ><a target='_blank' href="GPA_CALC.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
 					<li class="last" title="Home" ><a href="team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
 					<li><a href="timeline.php" ><i class="icon-group">&nbsp;</i> Timeline</a></li>
-					<li title="Contact Us" ><a href="testimonials.html"><i class="icon-lightbulb">&nbsp;</i> Wise sayings</a></li>
-					<li title="Contact Us" ><a target='_blank' href="gallery.html"><i class="icon-picture">&nbsp;</i> Gallery</a></li>
+					
+		
 					<li title="about us" ><a target='_blank' href="about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
 
 					<li title="Privacy Policy" class=""><a href="faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
@@ -113,7 +113,7 @@
 										
 											<ul style="display: none;">
 												<li><a href="gallery.html">Gallery</a></li>
-												<li><a href="testimonials.html">Wise Sayings</a></li>
+												
 												<li><a href="timeline.php">Timeline</a></li>
 												<li><a href="faq.html">Privacy Policy</a></li>
 											</ul>

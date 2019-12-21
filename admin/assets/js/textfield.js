@@ -3,14 +3,17 @@ const isEnter = () => {
     var textarea = w("#textarea"),
         li = w("#underline"),
         b = w("#bold"),
-        adddlink = w("#addlink");
+        adddlink = w("#addlink"),
+        addvid = w("#addvid");
     var s = w("#size"),
         i = w("#italics"),
         c = w("#color"),
         im = w("#imgins"),
+        vi = w("#vidins"),
         lt = w("#link");
     var linkname = w("#linkname"),
-        linktext = w("#linktext");
+        linktext = w("#linktext"),
+        vidlink = w("#vidlink");
     const check = () => {
         if (textarea.value.length == 0) {
             $("#disptext").html('Your text will appear here')
@@ -26,8 +29,15 @@ const isEnter = () => {
     lt.addEventListener("click", function() {
         $("#linkPanel").toggleClass('show');
     })
+    vi.addEventListener("click", function() {
+        //alert("john")
+        $("#vidPanel").toggleClass('show');
+    })
     adddlink.addEventListener("click", function() {
         imgInsert(textarea, "<a href='" + linkname.value + "' target='_blank'>" + linktext.value + "</a>")
+    })
+    addvid.addEventListener("click", function() {
+        imgInsert(textarea, "<center><video src='" + vidlink.value + "' style='width:300px;height:200px;display:block;' controls></video></center>")
     })
     li.addEventListener("click", function() {
         format(textarea, "<u>", "</u>")

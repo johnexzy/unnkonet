@@ -67,9 +67,9 @@
     </ul>
 </div>
 <div class="openmenu right">
-		<span class="bar" id="span1"></span>
-		<span class="bar" id="span2" style="top:12px"></span>
-		<span class="bar" id="span3" style="top: 19px"></span>
+		<span class="bar" id="span1" style="top:10px"></span>
+					<span class="bar" id="span2" style="top:17px"></span>
+					<span class="bar" id="span3" style="top: 24px"></span>
 	</div>
 <div class="mainbody">
 <div class="grid">
