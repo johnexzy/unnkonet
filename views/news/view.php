@@ -1,5 +1,6 @@
 <?php
 require_once '../../php/config.php';
+
 if (isset($_GET['id'])) {
 
     $id = intval($_REQUEST['id']);
@@ -9,6 +10,7 @@ if (isset($_GET['id'])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     extract($row);
     include '../../php/newsindex.php';
+    $newdate = new checkDate();
     ?>
 <!DOCTYPE HTML>
 <html>
@@ -155,33 +157,40 @@ if (isset($_GET['id'])) {
                 </div>
             </div><!-- end description area -->
             <?php
-$querycomment = "SELECT * FROM comment WHERE tag = '$tag' \n" . " ORDER BY `id` DESC";
-    $st = $DBcon->prepare($querycomment);
-    $st->execute();
-    $showupdate = "";
-    $showupdate .= "<div id='commentts' class='c8'>
-                                    <h1 class='maintitle'><span><i class='icon-envelope-alt'></i>COMMENTS</span></h1>
-                                    <ul>";
-    while ($corow = $st->fetch(PDO::FETCH_ASSOC)) {
-        $showupdate .= "<li>
+            $querycomment = "SELECT * FROM comment WHERE tag = '$tag' ";
+            $st = $DBcon->prepare($querycomment);
+            $st->execute();
+            $showupdate = "";
+            $showupdate .= "<div id='commentts' class='c8'>
+                                            <h1 class='maintitle'><span><i class='icon-comment'></i> COMMENTS</span></h1>
+                                            <ul>";
+            if (getComments($tag) !== 0) {
+                while ($corow = $st->fetch(PDO::FETCH_ASSOC)) {
+                    $time = strtotime("$corow[Timeat]");
+                    $showupdate .= "<li>
                                         <article>
                                         <header>
                                             <figure class='avatar'><img src='../../images/avatar.png' alt=''></figure>
                                             <address>
                                             By <a href='#'>$corow[names]</a>
                                             </address>
-                                            <time>$corow[Timeat] </time>
+                                            <time>".$newdate->checkDay($time)." </time>
                                         </header>
                                         <div class='comcont'>
                                             <p>$corow[comments]</p>
                                         </div>
                                         </article>
                                     </li>";
-    }
-    $showupdate .= "	</ul>
-                                </div>";
-    echo $showupdate;
-    ?>
+            }
+            
+            }
+            else{
+                $showupdate .= "<li>NO COMMENTS YET!!</li>";
+            }
+            $showupdate .= "	</ul>";
+            $showupdate .= "	</div>";                            
+            echo $showupdate;
+            ?>
             <div class="wrapcontact">
                 <form action="" method="GET">
                     <div class="form">

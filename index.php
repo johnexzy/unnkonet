@@ -45,16 +45,17 @@ include './php/youtube.php';
 	.showpanel{
 		display:none;
 	}
+	
 </style>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<!-- <script src="js/jquery-1.9.0.min.js"></script> -->
+		<script src="js/jquery-1.9.0.min.js"></script>
 		<!-- STYLES & JQUERY
 		==================================================-->
-		<script src="https://code.jquery.com/jquery-1.9.0.min.js"
+		<!-- <script src="https://code.jquery.com/jquery-1.9.0.min.js"
 
 		  integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344="
 
-		  crossorigin="anonymous"></script>
+		  crossorigin="anonymous"></script> -->
 
 		<link rel="manifest" href="manifest.json">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -150,10 +151,10 @@ include './php/youtube.php';
 			</div>
 
 			<div class="openmenu right">
-					<span class="bar" id="span1" style="top:10px"></span>
-					<span class="bar" id="span2" style="top:17px"></span>
-					<span class="bar" id="span3" style="top: 24px"></span>
-				</div>
+				<span class="bar" id="span1" style="top:10px"></span>
+				<span class="bar" id="span2" style="top:17px"></span>
+				<span class="bar" id="span3" style="top: 24px"></span>
+			</div>
 
 			<div class="mainbody">
 
@@ -705,9 +706,8 @@ include './php/birthday.php';
 		<script src="js/date.js"></script>
 
 		<script src="js/modernizr-latest.js"></script>
-
-
-
+		<script src="js/dom-to-image.min.js"></script>
+		<script src="js/image.js"></script>
 		<!-- menu & scroll to top -->
 
 		<script src="js/main.js"></script>

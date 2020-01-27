@@ -157,15 +157,24 @@ code{
                 </div>
             </div><!-- end description area -->
             <?php
+                function getComments(String $tag)
+                {
+                    include "../../php/dbconnect.php";
+                    $query = "SELECT * FROM comment WHERE tag = '$tag'";
+                    $query = $DBcon->query($query);
+                    $comments = $query->num_rows;
+                    return $comments;
+                }
                 $querycomment = "SELECT * FROM comment WHERE tag = '$tag' \n" . " ORDER BY `id` DESC";
                 $st = $DBcon->prepare($querycomment);
                 $st->execute();
                 $showupdate = "";
                 $showupdate .= "<div id='commentts' class='c8'>
-                                    <h1 class='maintitle'><span><i class='icon-envelope-alt'></i>COMMENTS</span></h1>
+                                    <h1 class='maintitle'><span><i class='icon-comment'></i> COMMENTS</span></h1>
                                     <ul>";
-                while($corow=$st->fetch(PDO::FETCH_ASSOC)){
-                    $showupdate .="<li>
+                if (getComments($tag) !== 0) {
+                    while ($corow = $st->fetch(PDO::FETCH_ASSOC)) {
+                    $showupdate .= "<li>
                                         <article>
                                         <header>
                                             <figure class='avatar'><img src='../../images/avatar.png' alt=''></figure>
@@ -179,9 +188,13 @@ code{
                                         </div>
                                         </article>
                                     </li>";
+                    }
                 }
-                $showupdate .= "	</ul>
-                                </div>";
+                else{
+                    $showupdate .= "<li>NO COMMENTS YET!!</li>";
+                }
+                $showupdate .= "	</ul>";
+                $showupdate .= "	</div>";                            
                 echo $showupdate;
             ?>
             <div class="wrapcontact">

@@ -29,25 +29,26 @@
         	</div>
 
         	<ul id="submenu" style="">
-                <li  color="black"><a href="index.php"><i class="icon-home"></i> HOME</a></li>
-                <li><a href="vanilla/"><i class="icon-group">&nbsp;</i> Forum</a>		
-                <li class="active"><a href="pricing.php"><i class="icon-credit-card">&nbsp;</i> PRICING TAble</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-calendar">&nbsp;</i> birthday signup</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-tags">&nbsp;</i> news timeline</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-lightbulb">&nbsp;</i> Wise sayings</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-picture">&nbsp;</i> Gallery</a></li>
-                <li class="last" title="Home" ><a href="team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
-                <li title="about us" ><a href="about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
-                <li title="Privacy Policy" class=""><a href="faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
-                <li title="Contact Us" ><a href="contact.html"><i class="icon-phone">&nbsp;</i> contact Us</a></li>
-            </ul>
+
+				<li><a href="index.php"><i class="icon-home"></i> HOME</a></li>
+				<li class="active"><a href="pricing.php"><i class="icon-credit-card">&nbsp;</i> PRICING TAble</a></li>
+				<li title="birthdaysignup" ><a target='_blank' href="birthdaysignup.php"><i class="icon-calendar">&nbsp;</i> birthday signup</a></li>
+				<li title="GPCALC" ><a target='_blank' href="GPA_CALC.html"><i class="icon-star">&nbsp;</i> GP CAlculator</a></li>
+				<li class="last" title="Home" ><a href="team.php"><i class="icon-group">&nbsp;</i> Team</a></li>
+				<li><a href="timeline.php" ><i class="icon-group">&nbsp;</i> Timeline</a></li>
+				<li title="about us" ><a target='_blank' href="about.html"><i class="icon-info-sign">&nbsp;</i> about us</a></li>
+
+				<li title="Privacy Policy" class=""><a href="faq.html"><i class="icon-legal">&nbsp;</i> F.A.Q</a></li>
+
+				<li title="Contact Us" ><a target='_blank' href="contact.html"><i class="icon-phone">&nbsp;</i> contact Us</a></li>
+
+			</ul>
         </div>
         <div class="openmenu right">
-        		<span class="bar" id="span1"></span>
-        		<span class="bar" id="span2" style="top:12px"></span>
-        		<span class="bar" id="span3" style="top: 19px"></span>
-        	</div>
+			<span class="bar" id="span1" style="top:10px"></span>
+			<span class="bar" id="span2" style="top:17px"></span>
+			<span class="bar" id="span3" style="top: 24px"></span>
+		</div>
         <div class="mainbody">
         <div class="grid">
         	<div class="row space-bot" style="height: 150px;">

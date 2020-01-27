@@ -49,22 +49,23 @@
     $nowm = date('m') ;
     $datetoday = ($nowd."/".$nowm);
     include_once 'config.php';
-    $query = "SELECT * FROM `birthday`";
+    $query = "SELECT * FROM `birthday` WHERE bday = '$datetoday'";
     $stmt = $DBcon->prepare( $query );
     $stmt->execute();
-    $string = "DATE: <b style='color:#000;text-transform:uppercase'>".FormMonth($nowm)." ".$nowd."</b>";
+    $num = 0;
+    $string = "DATE: <b style='color:#000;text-transform:uppercase'>".FormMonth($nowm)." ".$nowd."</b><hr>";
     while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-            if($datetoday == "$row[bday]"){
-                $string .= "<li><div class='c5' style='margin:0 20px 10px 0;".
-                            "background: url(images/birthday/1.jpg);".
+                $string .= "<li><div class='c5' id='my-node' style='margin:0 20px 10px 0;".
+                            "background: url(images/birthday/bgbd.jpg);".
                             "background-size:100% 400px; min-height:400px;".
                             " background-repeat:no-repeat'><img src='$row[avatar]'".
                             " class='' style='width:44%; height:148px; position:relative;".
-                            " left:52%; top:173px; border-bottom-right-radius:20px; border-bottom-left-radius:20px' alt=''><i style=' position: relative;".
-                            " color:blue; left:10%; z-index:1000; top:200px;".
+                            " left:25%; top:75px; border-bottom-right-radius:0px; border-bottom-left-radius:0px' alt=''><div style='text-align:center'><i style=' position: relative;".
+                            " color:#ffffff82;left:0%; z-index:1000; top:82px;".
                             " font-family: Arial;font-size:20px;'>".
-                            "$row[FULLNAME]</i></div></li>";
-            }
+                            strtoupper($row["FULLNAME"])."</i></div></div></li>";
+            
     }
+    
     echo $string;
 ?>
