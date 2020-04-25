@@ -3,7 +3,7 @@
 if (isset($_POST['UploadNews'])) {    
         $header = $DBcon->real_escape_string($_POST['header']);
         $msg = $DBcon->real_escape_string($_POST['msg']);
-        $tag = $DBcon->real_escape_string(substr($header, 0, 9));
+        $tag = $DBcon->real_escape_string(substr($header, 0, 9).rand(1, 100000000000));
         $Dateofpost = date('Y').date('m').date('d');
         $category = $DBcon->real_escape_string($_POST['category']);
         $poster = $userRow['lastname']." ".$userRow['firstname'];

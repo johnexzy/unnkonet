@@ -1,30 +1,32 @@
-<?php 
-    include_once '../php/env.php';
-    include 'session.php';
-    function maxValue($table){
-        require '../php/config.php';
-        $query = "SELECT * FROM $table";
-        $stmt = $DBcon->prepare( $query );
-        $stmt->execute();
-        $x = 0;
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-            $x += 1;
-        }
-        return $x;
+<?php
+include_once '../php/env.php';
+include 'session.php';
+function maxValue($table)
+{
+    require '../php/config.php';
+    $query = "SELECT * FROM $table";
+    $stmt = $DBcon->prepare($query);
+    $stmt->execute();
+    $x = 0;
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $x += 1;
     }
-    function _getSongName(){
-        require '../php/config.php';
-        $query = "SELECT * FROM audioupload";
-        $stmt = $DBcon->prepare( $query );
-        $stmt->execute();
-        $x = "";
-        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+    return $x;
+}
+function _getSongName()
+{
+    require '../php/config.php';
+    $query = "SELECT * FROM audioupload";
+    $stmt = $DBcon->prepare($query);
+    $stmt->execute();
+    $x = "";
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-            $x .= "$row[nameofaudio]";
-        }
-        return $x;
+        $x .= "$row[nameofaudio]";
     }
-    
+    return $x;
+}
+
 ?>
 <html lang='en'>
 <head>
@@ -83,7 +85,7 @@
                         <p>Settings</p>
                     </a>
                 </li>
-                
+
                 <li class='active'>
                     <a href='#'>
                         <i class='pe-7s-home'></i>
@@ -108,7 +110,7 @@
                         <p>about us</p>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href='../team.php'>
                         <i class='pe-7s-users'></i>
@@ -200,18 +202,18 @@
                                     CAROUSEL
                                 </b>
                             </p>
-                            <p class='records'><?php echo(maxValue("showcase"));?> Active slides</p>
+                            <p class='records'><?php echo (maxValue("showcase")); ?> Active slides</p>
                         </section>
                     </a>
                     <a href="homepages/newsupdate.php">
                         <section class='plainbox' title='click to edit'>
-                            <p align='center' class='textplain' > 
+                            <p align='center' class='textplain' >
                                 <b>
                                     <span class='pe-7s-radio'>&nbsp;</span>
                                     news update
                                 </b>
                             </p>
-                            <p class='records'><i class='pe-7s-notebook'>&nbsp;</i> <?php echo(maxValue("news"));?> Posts</p>
+                            <p class='records'><i class='pe-7s-notebook'>&nbsp;</i> <?php echo (maxValue("news")); ?> Posts</p>
                         </section>
                     </a>
                     <a href="homepages/advert.php">
@@ -222,7 +224,7 @@
                                     Advert showcase
                                 </b>
                             </p>
-                            <p class='records'><?php echo(maxValue("advert"));?> Active</p>
+                            <p class='records'><?php echo (maxValue("advert")); ?> Active</p>
                         </section>
                     </a>
                     <a href="homepages/entertainment.php">
@@ -233,7 +235,7 @@
                                     entertainment
                                 </b>
                             </p>
-                            <p class='records'><?php echo(maxValue("entertainment"));?> Active</p>
+                            <p class='records'><?php echo (maxValue("entertainment")); ?> Active</p>
                         </section>
                     </a>
                     <a href="table.php">
@@ -244,7 +246,7 @@
                                     Pricing
                                 </b>
                             </p>
-                            <p class='records'><?php echo(maxValue("pricing"));?> Active Billings</p>
+                            <p class='records'><?php echo (maxValue("pricing")); ?> Active Billings</p>
                         </section>
                     </a>
                     <a href="homepages/birthday.php">
@@ -255,7 +257,7 @@
                                     Manage Birthdays
                                 </b>
                             </p>
-                            <p class='records'><?php echo(maxValue("birthday"));?> signed</p>
+                            <p class='records'><?php echo (maxValue("birthday")); ?> signed</p>
                         </section>
                     </a>
                     <a href="homepages/song_of_the_week.php">
@@ -265,10 +267,10 @@
                                     <span class='pe-7s-music'>&nbsp;</span>
                                     song of the week
                                 </b>
-                            </p><p class='records'><?php echo(maxValue("audioupload"));?> Active song</p>
-                            <p class='records'><i class='pe-7s-music'></i> <?php echo(_getSongName());?></p>
+                            </p><p class='records'><?php echo (maxValue("audioupload")); ?> Active song</p>
+                            <p class='records'><i class='pe-7s-music'></i> <?php echo (_getSongName()); ?></p>
                         </section>
-                    </a> 
+                    </a>
                         <section class='plainbox' title='click to edit'>
                             <p align='center' class='textplain' >
                                 <b>
@@ -277,10 +279,27 @@
                                 </b>
                             </p>
                         </section>
-                     
-                   
+
+
             </div>
+
         </div>
+        <div class="card" style="padding: 20px">
+            <div class="card-header"><div class="h2" style="">Users Statistics(Overall)</div><div class="right"><b >(<?php echo(date('d/m', strtotime("last Sunday")))?> till Date. Refreshes every Sunday)</b></div>
+                </div>
+                    
+                        <div id="chartActivity" style="max-width: 1000px; height: 500px" class="ct-chart"></div>
+                        <div id="chartPie"></div>
+                        <div id="chartPreferences" style=""></div>
+                  
+                </div>
+
+
+
+
+                
+          
+
 
 
         <footer class='footer'>

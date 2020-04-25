@@ -169,7 +169,7 @@
 
         <div class='content'>
             <div class='container-fluid'>
-            <header><p class='info center' style='font-size: 22px;border: 1px solid;border-radius: 2px;color: #000; width: 100%;text-align: center;font-family: Arial, sans-serif; '>UPDATE SONG OF THE WEEK</p></header>
+            <header><p class='info center' style='font-size: 22px;border: 1px solid;border-radius: 2px;color: #000; width: 100%;text-align: center;font-family: Arial, sans-serif; '>UPDATE YOUTUBE VIDEO</p></header>
             
 
                 

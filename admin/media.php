@@ -200,7 +200,7 @@ if (isset($_POST['Upload'])) {
         $file_tmp =$_FILES['uploaditem']['tmp_name'][$key];
         $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
 
-        if(in_array($file_ext, $extensions)){
+        //if(in_array($file_ext, $extensions)){
             if (!file_exists("uploads/".$file_name)) {
                 
                 $query = "INSERT INTO `uploads` (`url`) VALUES ('$file_name')";
@@ -216,10 +216,10 @@ if (isset($_POST['Upload'])) {
                 echo "<br><div class='alert alert-danger'><b>".$file_name."<b> Alreday exist. it was skipped</div>";
                 
             }
-        }
-        else{
-            echo "<br><div class='alert alert-danger'><b>This filetype '".$file_ext."'<b> is not supported yet. contact developer</div>";
-        }
+        //}
+        //else{
+          //  echo "<br><div class='alert alert-danger'><b>This filetype '".$file_ext."'<b> is not supported yet. contact developer</div>";
+        //}
     }
     $DBcon->close();
 }

@@ -104,27 +104,31 @@ function getData($cat, $Currentid = 0)
     $showupdate = "<div class='row'>";
     while ($row = $stmt->fetch(PDO::FETCH_BOTH)) { //FETCH_BOTH indexes both the Colunmn name and Column Number
         $len += 1;
-        if ($row["timestamps"] !== NULL) {
+        
             $timestamp = strtotime($row["timestamps"]);
-        }
+        
         
         $newsinfo = new checkDate;
         if ($row[0] == $Currentid) {
             continue;
         }
-        $showupdate .= "<div class='c4'><a href='views/news/view.php?id=$row[id]' style='color:inherit'  >
+        $showupdate .= "<div class='c4' style='max-height:400px'><a href='views/news/view.php?id=$row[id]' style='color:inherit'  >
                                 <div class='feed' >
                                     <img src='http://localhost/www/version/admin/homepages/$row[uploads]' style='width:100%; height:200px;border-radius:10px 10px 0 0'>
 									<i class='icon-time'></i><p style='font-size:14px;display:inline'>
 									<b>'</b> " . $newsinfo->checkDay($timestamp) . "</p>
 									<p style='color:#000; font-size:18px; display:block;font-family: initial;'>
 									&nbsp;
-									$row[headline]</p>
+									".substr($row['headline'], 0, 80)."...</p>
 									<div>
 										<i class='icon-pencil'></i><i style='font-size:13px;'>: $row[Writer]</i>
-										<p style='float:right;'><i class='icon-comments'></i><font style='font-size:13px'>("
+                                        <p style='float:right;'>
+                                            <div style='float:right; margin:0.5em; border:0.1em solid; border-radius:0.3em; padding:0.2em; background:#a5aaab; color: #000'><i class='icon-comments'></i><font style='font-size:13px'>("
 										.getComments("$row[tag]").
-										")</font></p>
+                                        ")</font></div>
+                                        <div style='float:right; margin:0.5em; border:0.1em solid; border-radius:0.3em; padding:0.2em; background:#a5aaab; color: #000'><i class=icon-thumbs-up></i><font style='font-size:13px'>(3)</font></div>
+                                        <div style='float:right; margin:0.5em; border:0.1em solid; border-radius:0.3em; padding:0.2em; background:#a5aaab; color: #000'><i class=icon-eye-open></i><font style='font-size:13px'>(3)</font></div>
+                                        </p>
 									</div>
 								</div>
 							</a></div>

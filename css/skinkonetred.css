@@ -6,7 +6,7 @@ a.prev:hover,a.next:hover { background-color:#97001d;}
 .vuzz-pricing-table .vuzz-pricing-per {	background:#97001d;}
 .hometitlebg { background:#97001d; }
 .colortitlebg { background:#97001d; }
-.neutralbutton {	background:#97001d;}
+.neutralbutton {	background:rgba(151, 0, 30, 0.651);}
 .serviceicon { background-color:#97001d;}
 .subtitle { border-bottom:#97001d 1px solid;}
 .wrapaction { border-left: #97001d 3px solid;background:#fff;}

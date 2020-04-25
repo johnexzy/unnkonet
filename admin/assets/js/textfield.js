@@ -27,10 +27,16 @@ const isEnter = () => {
         }
     });
     lt.addEventListener("click", function() {
-        $("#linkPanel").toggleClass('show');
+        $(this).toggleClass('panelListshowActive');
+        $(this).toggleClass('panelList');
+        $("#panelPane").toggleClass('panelPane')
+        $("#panelPane").toggleClass('panelPaneActive')
+        $("#linkPanel").toggleClass('show')
     })
     vi.addEventListener("click", function() {
         //alert("john")
+        $(this).toggleClass('panelListshowActive');
+        $(this).toggleClass('panelList');
         $("#vidPanel").toggleClass('show');
     })
     adddlink.addEventListener("click", function() {
@@ -52,6 +58,7 @@ const isEnter = () => {
         format(textarea, "<i>", "</i>")
     })
     im.addEventListener("click", function() {
+
         var imgURL = prompt("Paste the correct image url...")
         if (imgURL) {
             imgInsert(textarea, "<img src='" + imgURL + "' style='width:300px;height:200px;display:block;' alt='image'>")

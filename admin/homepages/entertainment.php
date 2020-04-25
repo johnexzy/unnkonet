@@ -1,7 +1,7 @@
-<?php 
-    include '../../php/env.php';
-    include '../session.php';
-    include '../dbconnect.php';
+<?php
+include '../../php/env.php';
+include '../session.php';
+include '../dbconnect.php';
 ?>
 <html lang='en'>
 <head>
@@ -55,7 +55,7 @@
                         <p>Settings</p>
                     </a>
                 </li>
-                
+
                 <li class='active'>
                     <a href='../home.php'>
                         <i class='pe-7s-home'></i>
@@ -74,7 +74,7 @@
                         <p>contact Us</p>
                     </a>
                 </li>
-                <li> 
+                <li>
                     <a href='icons.html'>
                         <i class='pe-7s-id'></i>
                         <p>about us</p>
@@ -128,7 +128,7 @@
 								<p class='hidden-lg hidden-md'>Dashboard</p>
                             </a>
                         </li>
-                        
+
                     </ul>
 
                     <ul class='nav navbar-nav navbar-right'>
@@ -168,193 +168,121 @@
         </nav>
            <!-- ------------------------------------------------------------------------- -->
            <div class='content'>
-            <header>
-                <p class='info center' style='cursor:pointer; font-size: 22px;background:rgb(155, 72, 72);border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD entertainment</p></header>
-                <?php
-                if (isset($_POST['addentertainment'])) {
-                    $header = $DBcon->real_escape_string($_POST['header']);
-                    $body = $DBcon->real_escape_string($_POST['body']);
-                    $tag = $DBcon->real_escape_string(substr($header, 0, 9).rand(1, 33333));
-                    $Dateofpost = date('Y').date('m').date('d');
-                    $poster = $userRow['lastname']." ".$userRow['firstname'];
-                    //make sure file type is image
-                    if (preg_match("!image!", $_FILES['avatar']['type'])){
-                        $fil = $_FILES['avatar']['name'];
-                        $ext = substr($fil, -3);
-                        switch ($ext) {
-                            case 'jpg':
-                                $_FILES['avatar']['name'] = 'IMG_'.$Dateofpost.'_'.time().'_UN.'.$ext;
-                                break;
-                            case 'png':
-                                $_FILES['avatar']['name'] = 'IMG_'.$Dateofpost.'_'.time().'_UN.'.$ext;
-                                break;
-                            case 'gif':
-                                $_FILES['avatar']['name'] = 'IMG_'.$Dateofpost.'_'.time().'_UN.'.$ext;
-                                break;
-                            case 'peg':
-                                $_FILES['avatar']['name'] = 'IMG_'.$Dateofpost.'_'.time().'_UN.j'.$ext;
-                                break;
-                            default:
-                                # code...
-                                break;
-                        }
-                        $avatar_path = $DBcon->real_escape_string('images/'.$_FILES['avatar']['name']);
-                        //copy the image to images/ folder
-                        if (copy($_FILES['avatar']['tmp_name'], $avatar_path)){
-                            $sql = "INSERT INTO `entertainment` (`image`, `header`, `body`, `Dateofpost`, `Writer`, `tag`) VALUES ('$avatar_path', '$header',  '$body', '$Dateofpost', '$poster', '$tag')";
-                            if ($DBcon->query($sql) === true) {
-                            $mssg = "<div class='alert alert-success'>
-                                        <span class='pe-7s-info'></span> &nbsp; successfully Succesfully added !
-                                    </div>";
-                            }
-                            else {
-                                $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
-                    </div>";
-                            }
-                        }else{
-                            $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error registering!
-                    </div>";
-                        }
-                    }else {
-                        $mssg = "<div class='alert alert-danger'><span class='pe-7s-info'></span> &nbsp; file uplload failed !
-                    </div>";
-                    }
-                        
-                
-                }
-                if(isset($_POST['editentertainment'])){
-                    $header = $DBcon->real_escape_string($_POST['editheader']);
-                    $body = $DBcon->real_escape_string($_POST['editbody']);
-                    $id = $_POST['myid'];
-                    $avatar_path = $DBcon->real_escape_string('images/'.$_FILES['editimage']['name']);
-                    //make sure file type is image
-                    if($_FILES['editimage']['name'] === ''){
-                        $avatar_path = 0;
-                        $sql = "UPDATE `entertainment` SET `header` = '$header', `body` = '$body' WHERE `entertainment`.`id` = '$id'";
-                    }
-                    else{
-                        if (preg_match("!image!", $_FILES['editimage']['type'])){
-                        
-                            //copy the image to images/ folder
-                            if (copy($_FILES['editimage']['tmp_name'], $avatar_path)){
-                                $sql = "UPDATE `entertainment` SET `header` = '$header', `body` = '$body', `image` = '$avatar_path' WHERE `entertainment`.`id` = $id"; 
-                            }else{
-                                $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; image Upload Failed!</div>";
-                            }
-                        }else {
-                            $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; File type is not image!</div>";
-                        }
-                    }
-                    if ($DBcon->query($sql) === true) {
-                        $mssg = "<div class='alert alert-success'><span class='pe-7s-info'></span> &nbsp; Succesfully Updated !</div>";
-                        }else {
-                            $mssg = "<div class'alert alert-danger'><span class='pe-7s-info'></span> &nbsp; error in Editing!</div>";
-                        }
-                }
-                
+            
+                <?php include 'ent.inc.php'?>
 
-
-                ?>
-                <?php
-                if (isset($mssg)) {
-                # code...
-                echo $mssg;
-                }
-
-                ?>
-                
                 <div id="showresult"></div>
-                <div id="disptext"></div>
-                <form action="" enctype="multipart/form-data" method="POST">
-                    <div class="carol-large">
-                        <div >
-                            <section id="access" style=" border:2px dashed">
-                                <div id="Panel">
-                                    <div id="linkPanel">
-                                        <label for="link">PASTE LINK HERE</label><textarea name="link" id="linkname" placeholder="e.g https://unnkonet.com.ng"></textarea><br>
-                                        <label for="text">Show link as:</label><input type="text" id="linktext" name="text" placeholder="e.g. click Here">
-                                        <button type="button" id="addlink">&plus; ADD</button>
+                
+
+                    <!-- FORM WRITE -->
+                    <form action="" enctype="multipart/form-data" method="POST"><section id="access" style="margin:-30px -18px 20px -17px; ">
+                                    
+                                    <ul id="panelPane" class="panelPane">
+                                        <li  id="link" class="panelList">Create Text Link</li>
+                                        <li class="panelList" id="underline"><u>U</u></li>
+                                        <li class="panelList" id="italics"><i>I</i></li>
+                                        <li class="panelList" id="bold"><b>B</b></li>
+                                        <li class="panelList" id="size">fontsize</li>
+                                        <li class="panelList" id="color">Color</li>
+                                        <li class="panelList" id="imgins">Insert Image by Link</li>
+                                        <li class="panelList" id="vidins">Insert Video by Link</li>
+                                        
+                                    </ul><div id="Panel">
+                                       <div id="linkPanel">
+                                            <p style="text-align:center; color:blue">CREATE LINKED TEXT</p>
+                                            <label for="link">PASTE LINK HERE</label><textarea name="link" id="linkname" placeholder="e.g https://unnkonet.com.ng"></textarea><br>
+                                            <label for="text">Show link as:</label><input type="text" id="linktext" name="text" placeholder="e.g. click Here">
+                                            <button type="button" id="addlink">&plus; ADD</button>
+                                        </div>
+                                        <div id="vidPanel">
+                                            <p style="text-align:center; color:blue">ADD VIDEO</p>
+                                            <label for="link">PASTE LINK HERE(copy the correct video link.)</label><textarea name="link" id="vidlink" placeholder="e.g https://unnkonet.com.ng/admin/uploads/exapmle.mp4"></textarea><br>
+                                            <input type="checkbox" id="linktext" name="text" checked><label for="text"> Show Control</label>
+                                            <button type="button" id="addvid">&plus; ADD</button>
+                                        </div> 
                                     </div>
-                                </div>
-                                <input type="button" value="Create Text Link" id="link">|
-                                <input type="button" value="Underline" id="underline">|
-                                <input type="button" value="italics" id="italics">|
-                                <input type="button" value="fontsize" id="size">|
-                                <input type="button" value="bold" id="bold">|
-                                <input type="button" value="Color" id="color">
-                                <input type="button" value="Insert Image by Link" id="imgins">
-                            </section>
-                            <textarea class="header-large" id='msg' placeholder="Your headline here" name='header' maxlength=''></textarea>
-                        </div>
-                        <div>
-                            <textarea class="msg-large" placeholder='Write Your Post here' name='body' id="textarea"></textarea>
-                        </div>
-                        <div id="changeimage" style='cursor:pointer'>
-                            <div class="rowimage-small" id='showText' >
-                                <h4 style='text-align:center' class='imgshow'>
-                                    <i class="pe-7s-cloud-upload" style='color:gold;font-weight:bolder; font-size:30px'>
-                                    </i>
-                                    <font size="3">click here to <br> UPLOAD IMAGE <br> </font>
-                                </h4>
+                                </section><div style="border:1px solid; margin-bottom:10px; border-radius:5px" id="disptext"></div>
+                        <div class="carol-large">
+                                
+                            <div >
+                                <span style="color:red; font-size:14px">*</span>
+                                <textarea class="header-large" id='msg' placeholder="Your headline here" name='header' maxlength='' required></textarea>
                             </div>
-                            <img class='rowimage-small' id="prev" style='display:none;'>
+                            <div>
+                            <span style="color:red; font-size:14px">*</span>
+                                <textarea class="msg-large" placeholder='Write Your Post here' name='body' id="textarea" required></textarea>
+                            </div>
+                            <span style="color:red; float:right; font-size:14px">*</span>
+                            <div id="changeimage" style='cursor:pointer'>
+                            
+                                <div class="rowimage-small" id='showText' >
+                                <h6 class="showText" style="font-size: 16px; font-family: Arial, serif;text-align:center " >
+                                    <span style="color: #a11111; font-size:14px"></span>CHOOSE PHOTO
+                                    <span style="display:block; margin-top:60px; font-size:23px; "><i class="pe-7s-cloud-upload" style="font-weight:700"></i></span>
+                                </h6>
+                                </div>
+                                
+                                <img class='rowimage-small' id="prev" style='display:none;'>
+                            </div>
+
+                            <input type="hidden"  name="Dateofpost" id='dateofpost'>
+                            <input type="file" id="image" accept="image/*" name="avatar" onchange="loadFile(event)" style='display:none; ' required>
+                            <button type='submit' name='UploadNews' class='send-large'><i class="pe-7s-paper-plane" style="font-weight:700"></i> &nbsp;POST</button>
                         </div>
-                        
-                        <input type="hidden"  name="Dateofpost" id='dateofpost'>
-                        <input type="file" id="image" name="avatar" onchange="loadFile(event)" style='display:none; ' multiple>
-                        <input type='submit' name='addentertainment' class='send-large' value='CREATE'>
-                    </div>
-                    <script type="text/javascript" src="../assets/js/textfield.js"></script>
                 </form>
-                <header><p class='info center' style='background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 22px'>EDIT SLIDERS</p></header>
+                <script type="text/javascript" src="../assets/js/textfield.js"></script>
+                </form>
                 <div id="showdelres">
                     <?php
-                        include_once '../../php/config.php';
-                        $query = "SELECT * FROM `entertainment`  \n" . " ORDER BY `id` DESC";
-                        $stmt = $DBcon->prepare( $query );
-                        $stmt->execute();
-                        $display_string = "<div>";
-                        while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                            $display_string .= "<hr>";
-                            $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> EDIT</button><span>&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button>";
-                            $display_string .= "<div class='carol'>";
-                            $display_string .= "<div class='header'>";
-                            $display_string .= "$row[header]";
-                            $display_string .= "</div>";
-                            $display_string .= "<div class='msg'>";
-                            $display_string .= substr("$row[body]", 0, 70);
-                            $display_string .= "</div>";
-                            $display_string .= "<img class='rowimage' src='$row[image]'>";
-                            $display_string .= "</div>";
-                            
+include_once '../../php/config.php';
+$query = "SELECT * FROM `entertainment`  \n" . " ORDER BY `id` DESC";
+$stmt = $DBcon->prepare($query);
+$stmt->execute();
+$display_string = "<div>";
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $display_string .= "<hr>";
+    $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' >"
+        . "<i class='pe-7s-pen'></i> EDIT</button>" .
+        "&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' >" .
+        "<i class='pe-7s-trash'></i> DELETE</button>&nbsp;|&nbsp;" .
+        "<a href='../../views/entertainments/view.php?id=$row[id]&getentertainmentinfo=read+more' target='_blank'><button class='btn btn-sm btn-info' style='float:right'><i class='pe-7s-look'></i> VIEW POST</button></a>";
+    $display_string .= "<div class='carol'>";
+    $display_string .= "<div class='header'>";
+    $display_string .= "$row[header]";
+    $display_string .= "</div>";
+    $display_string .= "<div class='msg'>";
+    $display_string .= substr("$row[body]", 0, 70);
+    $display_string .= "</div>";
+    $display_string .= "<img class='rowimage' src='$row[image]'>";
+    $display_string .= "</div>";
 
-                        }
-                        $display_string .= "</div>";
-                
-                        $display_string .="<p id='openadd' class='info center' style='cursor:pointer; font-size: 22px;background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD MORE SLIDERS</p>";
-                        echo $display_string;
-                    ?>
+}
+$display_string .= "</div>";
+
+$display_string .= "<p id='openadd' class='info center' style='cursor:pointer; font-size: 22px;background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD MORE SLIDERS</p>";
+echo $display_string;
+?>
                 </div>
                 <div id="view-edit" class="dropper" style="display:none">
                     <div class="dropper-content">
-                    <div class="modal-header"> 
+                    <div class="modal-header">
                             <h4 class="modal-title">
                             	<i class="pe-7s-tools"></i> EDIT
-                            </h4> 
+                            </h4>
                        </div>
                        <form action="" enctype="multipart/form-data" method="POST">
                             <div id="data-content">
-                            
+
                             </div>
-                        
-                            <div class="modal-footer"> 
-                                <button type="subimt" class="btn btn-default" name="editadvert" >Submit</button>  
-                                <button type="button" class="btn btn-default" id="close">Close</button>  
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default" name="editentertainment" >Submit</button>
+                                <button type="button" class="btn btn-default" id="close">Close</button>
                             </div>
                         </form>
                     </div>
                 </div><!-- /.modal -->
-               
+
 		   </div>
            <!-- ------------------------------------------------------------------------- -->
         <footer class='footer'>
@@ -384,9 +312,9 @@
 	<script src='../assets/js/bootstrap.min.js' type='text/javascript'></script>
     <script>
     $(document).ready(function(){
-        
+
         $(document).on('click', '#getUser', function(e){
-            
+
             e.preventDefault();
             var uid = $(this).data('id');   // it will get id of clicked row
                 // load ajax loader
@@ -398,21 +326,21 @@
             })
             .done(function(data){
                 console.log(data);
-                
+
                 $('#data-content').html(data)
-                $('#view-edit').slideDown()		  // hide ajax loader	
+                $('#view-edit').slideDown()		  // hide ajax loader
             })
             .fail(function(){
               alert('error');
             });
-            
+
         });
-        
+
     });
     $(document).ready(function(){
-        
+
         $(document).on('click', '#delUser', function(e){
-            
+
             e.preventDefault();
 
 
@@ -432,14 +360,14 @@
             .done(function(data){
                 console.log(data);
                 $('#showdelres').html(data);
-                demo.Notification('top','right');	 
+                demo.Notification('top','right');
             })
             .fail(function(){
               alert('error');
             });
-            
+
         });
-        
+
     });
     $(window).ready(function(){
         $('#close').click(function(){
@@ -460,13 +388,13 @@
         })
         });
       })
-      
+
     </script>
     <script>
         var id = document.getElementById.bind(document);
-        
+
         function date(params) {
-            
+
             y = new Date().getFullYear()
             m = Number(new Date().getMonth() + 1)
             d = new Date().getDate()
@@ -475,7 +403,7 @@
             datenow = Number(y+""+m+""+d)
             id(params).value = datenow
         }
-        
+
         var loadFile = function(event){
             var reader = new FileReader();
             reader.onload = function() {

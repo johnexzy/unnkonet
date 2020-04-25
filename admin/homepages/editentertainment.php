@@ -21,7 +21,7 @@
 				<div ><textarea class="header" name='editheader'><?php echo $header ?></textarea></div>
 				<div><textarea class="msg" name='editbody' ><?php echo $body ?></textarea></div>
 				<div id="edit-image" style='cursor:pointer' ><img class="rowimage"  src="<?php echo $image ?>"  id='old-image'><img id='prev-new' class='rowimage' style='display:none'></div>
-				<input type="file" name="editimage" id="select-image" style='display:none'>
+				<input type="file" accept="image/*" name="editimage" id="select-image" style='display:none'>
 			</div>
 			<script>
 			var id = document.getElementById.bind(document);

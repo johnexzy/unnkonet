@@ -13,18 +13,18 @@
 .records{text-emphasis: none; text-align: center; font-size: 15px; text-transform: initial; font-family: 'Courier New', Courier, monospace;font-weight: bold}
 .aliceblue{background: aliceblue;}
 .carol{width: 100%;margin: 10px auto;min-height: 300px;background: rgb(12, 57, 140);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid snow;border-radius: 10px;}
-.carol-large{width: 90%;margin: 10px auto;min-height: 600px;background: rgb(155, 72, 72);padding: 15px;box-sizing: border-box;border-block-end: 3px;border: 2px solid gold;border-radius: 10px;}
+.carol-large{width: 90%;margin: 0px auto;min-height: 600px;background: rgb(227, 226, 226);padding: 15px;box-sizing: border-box;border-block-end: 3px;}
 .header{border: 1px solid;width: 40%;min-height: 65px;padding: 6px;background: rgb(229, 226, 226);color: rgb(36, 35, 35);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
 .header-large{border: 1px solid;width: 100%;min-height: 65px;padding: 6px;background: rgba(27, 27, 27, 0.747);color: rgb(255, 255, 255);border-radius: 3px;font-family: Verdana, Tahoma, sans-serif}
 .msg{float: left;border: 1px solid;width: 40%;min-height: 200px;padding: 5px;background: rgba(228, 223, 223, 0.747);color: rgb(23, 23, 24);border-radius: 3px;margin-top:5px;}
 .msg-large{float: left;border: 1px solid;width: 100%;min-height: 400px;padding: 5px;background: rgba(27, 27, 27, 0.747);color: rgb(243, 245, 247);border-radius: 3px;margin-top:5px;}
 .msg-large-display{float: left;border: 1px solid;width: 100%;min-height: 220px;padding: 5px;background: rgba(27, 27, 27, 0.747);color: rgb(243, 245, 247);border-radius: 3px;margin-top:5px;}
 .rowimage{float: right;width: 45%;border-radius: 3px;height: 260px;margin-top: -60px;border:1px solid aliceblue}
-.rowimage-small{float: right;width: 45%;border-radius: 3px;height: 150px;margin: 10px 0;border:1px solid rgb(7, 67, 119);background: rgb(133, 57, 57);}
-.rowimage-small:hover{background: rgb(4, 13, 63);}
+.rowimage-small{float: right;width: 45%;border-radius: 3px;height: 250px;margin: 10px 0;border:1px solid rgb(7, 67, 119);background: rgb(227, 226, 226);box-shadow: 0px 0px 6px 0px}
+.rowimage-small:hover{background: rgb(200, 200, 200);box-shadow: 0px 0px 6px 2px;}
 .rowimage:hover{background: rgb(173, 168, 168);}
-.send-large{ display:block; border-radius: 5px;border: none;width:60%; line-height: 3;font-weight: bold; background: rgba(3, 58, 114, 0.781); color: gold; margin: 0 auto;}
-.send-large:hover{background: rgb(4, 13, 63);font-size: 17px}
+.send-large{ border-radius: 5px;border: none;width:60%; display:block; line-height: 3;font-weight: bold; background: rgba(3, 58, 114, 0.781); color: #fff; margin: 10px auto;}
+.send-large:hover{background: rgb(4, 13, 63);font-size: 14px}
 .dropper{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 1000;background: #ecebebd3}
 .dropper-content{max-width: 600px;margin: 30px auto;border: 1px solid #e5e5e5;border-radius: 10px;background: #fdfdfd;}
 .dropper-header{padding: 15px;border-bottom: 1px solid #e5e5e5;}
@@ -44,4 +44,9 @@
 #vidPanel button{display:block; color: #1a1919b2;background: #a7a4a4;font-size: 22.5px;font-weight: bold;width: 120px;height:40px;box-shadow: 0 0 12px #1d1c1c;margin: 9px 0 0 0;padding: 0;border-radius: 3px;}
 #vidPanel button:hover{background: #666565}
 .show{display: block}
-.imgshow{text-align:center; border:1px dashed gold;color:gold; text-transform:Uppercase; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+/*.imgshow{text-align:center; border:1px dashed gold;text-transform:Uppercase; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif} */
+.panelPane{list-style-type:none; display:flex; line-height:2; background: #213a9bcc; padding:5px}
+.panelPaneActive{list-style-type:none; display:flex; line-height:2; background: #213a9bcc; padding:5px 5px 0px 5px}
+.panelList{margin:0px 10px; color:#fff;padding: 5px}
+.panelList:hover{background: #214c9b}
+.panelListshowActive{background: #f7f7f8; color: #3b5998; margin: 0px 10px;padding: 5px}

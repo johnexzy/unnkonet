@@ -35,7 +35,9 @@ $(document).ready(function() {
 
                         })
                         .fail(function() {
-                            alert('error');
+                            alert("<div class='alert alert-danger'>" +
+                                    "<span class='pe-7s-info'></span> " +
+                                    "&nbsp; Internal Server Error. Contact Developer !</div>");
                         });
                 }
 

@@ -169,59 +169,75 @@
 
 
         <div class='content'>
-            <header><p class='info center' style='cursor:pointer; font-size: 22px;background:rgb(155, 72, 72);border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; '>ADD SLIDER</p></header>
                 <?php
                     require('carousel.db.inc.php');
                 ?>
-                        <?php
-        if (isset($mssg)) {
-            # code...
-            echo $mssg;
-        }
 
-        ?>
-        <div id="showresult"></div>
+                <form action="" enctype="multipart/form-data" method="POST"><section id="access" style="margin:-30px -18px 20px -17px; ">
 
-                <div id="disptext"></div>
-                <form action="" enctype="multipart/form-data" method="POST">
-                        <div class="carol-large">
-                            <div >
-                                <section id="access" style=" border:2px dashed">
-                                    <div id="Panel">
-                                        <div id="linkPanel">
-                                            <label for="link">PASTE LINK HERE</label><textarea name="link" id="linkname" placeholder="e.g https://unnkonet.com.ng"></textarea><br>
-                                            <label for="text">Show link as:</label><input type="text" id="linktext" name="text" placeholder="e.g. click Here">
-                                            <button type="button" id="addlink">&plus; ADD</button>
-                                        </div>
-                                    </div>
-                                    <input type="button" value="Create Text Link" id="link">|
-                                    <input type="button" value="Underline" id="underline">|
-                                    <input type="button" value="italics" id="italics">|
-                                    <input type="button" value="fontsize" id="size">|
-                                    <input type="button" value="bold" id="bold">|
-                                    <input type="button" value="Color" id="color">
-                                    <input type="button" value="Insert Image by Link" id="imgins">
-                                </section>
-                                <textarea class="header-large" id='msg' placeholder="Your headline here" name='header' maxlength=''></textarea>
-                            </div>
-                            <div>
-                                <textarea class="msg-large" placeholder='Write Your Post here' name='msg' id="textarea"></textarea>
-                            </div>
-                            <div id="changeimage" style='cursor:pointer'>
-                                <div class="rowimage-small" id='showText' >
-                                    <h4 style='text-align:center' class='imgshow'>
-                                        <i class="pe-7s-cloud-upload" style='color:gold;font-weight:bolder; font-size:30px'>
-                                        </i>
-                                        <font size="3">click here to <br> UPLOAD IMAGE <br> </font>
-                                    </h4>
-                                </div>
-                                <img class='rowimage-small' id="prev" style='display:none;'>
-                            </div>
-                            
-                            <input type="hidden"  name="Dateofpost" id='dateofpost'>
-                            <input type="file" id="image" name="avatar" onchange="loadFile(event)" style='display:none; ' multiple>
-                            <input type='submit' name='addslide' class='send-large' value='CREATE'>
+                    <ul id="panelPane" class="panelPane">
+                        <li  id="link" class="panelList">Create Text Link</li>
+                        <li class="panelList" id="underline"><u>U</u></li>
+                        <li class="panelList" id="italics"><i>I</i></li>
+                        <li class="panelList" id="bold"><b>B</b></li>
+                        <li class="panelList" id="size">fontsize</li>
+                        <li class="panelList" id="color">Color</li>
+                        <li class="panelList" id="imgins">Insert Image by Link</li>
+                        <li class="panelList" id="vidins">Insert Video by Link</li>
+
+                    </ul><div id="Panel">
+                    <div id="linkPanel">
+                            <p style="text-align:center; color:blue">CREATE LINKED TEXT</p>
+                            <label for="link">PASTE LINK HERE</label><textarea name="link" id="linkname" placeholder="e.g https://unnkonet.com.ng"></textarea><br>
+                            <label for="text">Show link as:</label><input type="text" id="linktext" name="text" placeholder="e.g. click Here">
+                            <button type="button" id="addlink">&plus; ADD</button>
                         </div>
+                        <div id="vidPanel">
+                            <p style="text-align:center; color:blue">ADD VIDEO</p>
+                            <label for="link">PASTE LINK HERE(copy the correct video link.)</label><textarea name="link" id="vidlink" placeholder="e.g https://unnkonet.com.ng/admin/uploads/exapmle.mp4"></textarea><br>
+                            <input type="checkbox" id="linktext" name="text" checked><label for="text"> Show Control</label>
+                            <button type="button" id="addvid">&plus; ADD</button>
+                        </div>
+                    </div>
+                    </section>
+                    <?php
+                    if (isset($mssg)) {
+                        # code...
+                        echo $mssg;
+                    }
+
+                    ?>
+                    <div id="showresult">
+                    </div>
+                    <div style="border:1px solid; margin-bottom:10px; border-radius:5px" id="disptext">
+                    </div>
+                    <div class="carol-large">
+
+                    <div >
+                    <span style="color:red; font-size:14px">*</span>
+                    <textarea class="header-large" id='msg' placeholder="Your headline here" name='header' maxlength='' required></textarea>
+                    </div>
+                    <div>
+                    <span style="color:red; font-size:14px">*</span>
+                    <textarea class="msg-large" placeholder='Write Your Post here' name='msg' id="textarea" required></textarea>
+                    </div>
+                    <span style="color:red; float:right; font-size:14px">*</span>
+                    <div id="changeimage" style='cursor:pointer'>
+
+                    <div class="rowimage-small" id='showText' >
+                    <h6 class="showText" style="font-size: 16px; font-family: Arial, serif;text-align:center " >
+                    <span style="color: #a11111; font-size:14px"></span>CHOOSE PHOTO
+                    <span style="display:block; margin-top:60px; font-size:23px; "><i class="pe-7s-cloud-upload" style="font-weight:700"></i></span>
+                    </h6>
+                    </div>
+
+                    <img class='rowimage-small' id="prev" style='display:none;'>
+                    </div>
+
+                    <input type="hidden"  name="Dateofpost" id='dateofpost'>
+                    <input type="file" id="image" accept="image/*" name="avatar" onchange="loadFile(event)" style='display:none; ' required>
+                    <button type='submit' name='addslide' class='send-large'><i class="pe-7s-paper-plane" style="font-weight:700"></i> &nbsp;POST</button>
+                    </div>
                 </form>
                 <script type="text/javascript" src="../assets/js/textfield.js"></script>
                 <header><p class='info center' style='background:grey;border: 1px solid;border-radius: 2px;color: aliceblue; width: 100%;text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 22px'>EDIT SLIDERS</p></header>
@@ -235,7 +251,11 @@
                     $display_string = "<div>";
                     while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                         $display_string .= "<hr>";
-                        $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' ><i class='pe-7s-pen'></i> EDIT</button><span>&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' ><i class='pe-7s-trash'></i> DELETE</button>";
+                        $display_string .= "<button data-id='$row[id]' id='getUser' class='btn btn-sm btn-info' >"
+                                            . "<i class='pe-7s-pen'></i> EDIT</button>" .
+                                            "&nbsp;|&nbsp;<button data-id='$row[id]' id='delUser' class='btn btn-sm btn-info' >" .
+                                            "<i class='pe-7s-trash'></i> DELETE</button>&nbsp;|&nbsp;" .
+                                            "<a href='../../views/adverts/view.php?id=$row[id]' target='_blank'><button class='btn btn-sm btn-info' style='float:right'><i class='pe-7s-look'></i> VIEW POST</button></a>";$display_string .= "<div class='carol'>";
                         $display_string .= "<div class='carol'>";
                         $display_string .= "<div class='header'>";
                         $display_string .= "$row[header]";
