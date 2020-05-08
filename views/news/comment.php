@@ -11,7 +11,7 @@
             $insert->bindParam(':comments', $comments);
             $insert->execute(); 
             $msg = 'succesful';
-            echo $msg;
+            
            
         }else
         {

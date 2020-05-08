@@ -1,7 +1,7 @@
 <?php
 require_once '../../php/dbconnect.php';
-// $cat = $_REQUEST['category'];
-$cat = "NEWS";
+$cat = $_REQUEST['category'];
+// $cat = "NEWS";
 $query = "SELECT * FROM `news` WHERE `category` = '$cat' ORDER BY `id` DESC";
 $query = $DBcon->query($query);
 $response = array();

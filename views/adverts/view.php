@@ -1,8 +1,8 @@
  <?php
 	require_once '../../php/config.php';
-	if (isset($_GET['getadvertinfo'])) {
+	if (isset($_GET['getadvertinfo']) && is_numeric($_GET['getadvertinfo'])) {
 			
-		$id = intval($_REQUEST['id']);
+		$id = (int) ($_REQUEST['id']);
 		$query = "SELECT * FROM advert WHERE id=:id";
 		$stmt = $DBcon->prepare( $query );
 		$stmt->execute(array(':id'=>$id));

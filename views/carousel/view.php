@@ -1,9 +1,9 @@
 <?php
 	require_once '../../php/config.php';
-	if (isset($_GET['id'])) {
+	if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 			
-		$id = intval($_REQUEST['id']);
-		$query = "SELECT * FROM showcase WHERE id=:id";
+		$id = (int) ($_REQUEST['id']);
+		$query = "SELECT * FROM showcase WHERsE id=:id";
 		$stmt = $DBcon->prepare( $query );
 		$stmt->execute(array(':id'=>$id));
 		$row=$stmt->fetch(PDO::FETCH_ASSOC);
